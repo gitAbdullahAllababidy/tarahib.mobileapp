@@ -1,5 +1,6 @@
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:tarahib_mobile_app/core/application/services/network_services.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/bottom_sheets/notice/notice_sheet.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/dialogs/info_alert/info_alert_dialog.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/views/home/home_view.dart';
@@ -16,6 +17,7 @@ import 'package:tarahib_mobile_app/core/presentation/ui/views/startup/startup_vi
     LazySingleton(classType: BottomSheetService),
     LazySingleton(classType: DialogService),
     LazySingleton(classType: NavigationService),
+    LazySingleton(classType: NetworkService)
     // @stacked-service
   ],
   bottomsheets: [
@@ -28,7 +30,8 @@ import 'package:tarahib_mobile_app/core/presentation/ui/views/startup/startup_vi
   ],
 )
 class App {
- static const devSettings = (EAppEnv.dev, "https://invite.event-reg.app/public");
+  static const devSettings =
+      (EAppEnv.dev, "https://invite.event-reg.app/public");
 }
 
 enum EAppEnv {

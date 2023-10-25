@@ -1,17 +1,19 @@
 import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
 import 'package:tarahib_mobile_app/app/app.locator.dart';
 import 'package:tarahib_mobile_app/app/app.router.dart';
-import 'package:stacked_services/stacked_services.dart';
+import 'package:tarahib_mobile_app/core/application/services/cache_store_service.dart';
+import 'package:tarahib_mobile_app/core/application/services/network_services.dart';
+import 'package:tarahib_mobile_app/core/application/services/storage_service/storage_service.dart';
+import 'package:tarahib_mobile_app/core/data/data_sources/auth_data_src.dart';
 
 class StartupViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
 
-  // Place anything here that needs to happen before we get into the application
   Future runStartupLogic() async {
-    await Future.delayed(const Duration(seconds: 3));
-
-    // This is where you can make decisions on where your app should navigate when
-    // you have custom startup logic
+    await CacheStoreService.initCacheStore();
+    await StorageService.init();
+    await locator<NetworkService>().postRequest(AuthDataSrc().loginApi);
 
     _navigationService.replaceWithHomeView();
   }

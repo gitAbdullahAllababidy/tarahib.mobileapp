@@ -22,7 +22,7 @@ final class NetworkService {
       );
   }
 
-  Future<Response<T>> getRequest<T>(
+  Future<Response<Map>> getRequest(
     String path, {
     Object? data,
     List<Interceptor>? interceptors,
@@ -36,11 +36,37 @@ final class NetworkService {
         _dio.interceptors.addAll(interceptors);
       }
 
-      return _dio.get<T>(path,
+      return _dio.get<Map>(path,
           data: data,
           queryParameters: queryParameters,
           options: options,
           cancelToken: cancelToken,
+          onReceiveProgress: onReceiveProgress);
+    } on Exception {
+      rethrow;
+    }
+  }
+
+  Future<Response<Map>> postRequest(
+    String path, {
+    Object? data,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    CancelToken? cancelToken,
+    List<Interceptor>? interceptors,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) {
+    try {
+      if (interceptors is List<Interceptor>) {
+        _dio.interceptors.addAll(interceptors);
+      }
+      return _dio.post<Map>(path,
+          data: data,
+          queryParameters: queryParameters,
+          options: options,
+          cancelToken: cancelToken,
+          onSendProgress: onReceiveProgress,
           onReceiveProgress: onReceiveProgress);
     } on Exception {
       rethrow;
