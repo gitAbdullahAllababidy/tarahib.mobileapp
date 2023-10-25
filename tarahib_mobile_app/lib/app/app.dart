@@ -28,7 +28,7 @@ import 'package:tarahib_mobile_app/core/presentation/ui/views/startup/startup_vi
   ],
 )
 class App {
-  final devSettings = (EAppEnv.dev, "https://invite.event-reg.app/public");
+ static const devSettings = (EAppEnv.dev, "https://invite.event-reg.app/public");
 }
 
 enum EAppEnv {

@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:tarahib_mobile_app/app/app.bottomsheets.dart';
 import 'package:tarahib_mobile_app/app/app.dialogs.dart';
