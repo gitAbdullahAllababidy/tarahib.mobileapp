@@ -7,7 +7,7 @@
 import 'package:stacked_services/stacked_services.dart';
 
 import 'app.locator.dart';
-import '../ui/bottom_sheets/notice/notice_sheet.dart';
+import '../core/presentation/ui/bottom_sheets/notice/notice_sheet.dart';
 
 enum BottomSheetType {
   notice,

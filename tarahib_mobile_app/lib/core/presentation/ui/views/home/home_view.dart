@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:tarahib_mobile_app/ui/common/app_colors.dart';
-import 'package:tarahib_mobile_app/ui/common/ui_helpers.dart';
+import 'package:tarahib_mobile_app/core/presentation/ui/common/app_colors.dart';
+import 'package:tarahib_mobile_app/core/presentation/ui/common/ui_helpers.dart';
 
 import 'home_viewmodel.dart';
 

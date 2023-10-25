@@ -9,8 +9,8 @@ import 'package:flutter/material.dart' as _i4;
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart' as _i1;
 import 'package:stacked_services/stacked_services.dart' as _i5;
-import 'package:tarahib_mobile_app/ui/views/home/home_view.dart' as _i2;
-import 'package:tarahib_mobile_app/ui/views/startup/startup_view.dart' as _i3;
+import 'package:tarahib_mobile_app/core/presentation/ui/views/home/home_view.dart' as _i2;
+import 'package:tarahib_mobile_app/core/presentation/ui/views/startup/startup_view.dart' as _i3;
 
 class Routes {
   static const homeView = '/home-view';

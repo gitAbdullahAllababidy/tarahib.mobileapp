@@ -2,8 +2,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:tarahib_mobile_app/app/app.bottomsheets.dart';
 import 'package:tarahib_mobile_app/app/app.locator.dart';
-import 'package:tarahib_mobile_app/ui/common/app_strings.dart';
-import 'package:tarahib_mobile_app/ui/views/home/home_viewmodel.dart';
+import 'package:tarahib_mobile_app/core/presentation/ui/common/app_strings.dart';
+import 'package:tarahib_mobile_app/core/presentation/ui/views/home/home_viewmodel.dart';
 
 import '../helpers/test_helpers.dart';
 
