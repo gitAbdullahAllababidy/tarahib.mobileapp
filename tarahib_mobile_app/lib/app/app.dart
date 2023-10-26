@@ -5,13 +5,15 @@ import 'package:tarahib_mobile_app/core/presentation/ui/bottom_sheets/notice/not
 import 'package:tarahib_mobile_app/core/presentation/ui/dialogs/info_alert/info_alert_dialog.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/views/home/home_view.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/views/startup/startup_view.dart';
+import 'package:tarahib_mobile_app/core/presentation/ui/views/login/login_view.dart';
 // @stacked-import
 
 @StackedApp(
   routes: [
     MaterialRoute(page: HomeView),
     MaterialRoute(page: StartupView),
-    // @stacked-route
+    MaterialRoute(page: LoginView),
+// @stacked-route
   ],
   dependencies: [
     LazySingleton(classType: BottomSheetService),

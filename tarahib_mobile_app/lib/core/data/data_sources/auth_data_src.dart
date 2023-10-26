@@ -1,4 +1,4 @@
-import 'package:tarahib_mobile_app/core/data/data_sources/data_src_interface.dart';
+import 'package:tarahib_mobile_app/core/data/data_sources/data_src_mixin.dart';
 
 final class AuthDataSrc with DataSrcInterface {
   
