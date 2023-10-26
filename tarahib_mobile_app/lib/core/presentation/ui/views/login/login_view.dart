@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:form_validator/form_validator.dart';
 import 'package:stacked/stacked.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/app_colors.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/app_them.dart';
+import 'package:tarahib_mobile_app/core/presentation/ui/common/forms_helpers.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/ui_helpers.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/views/login/login_viewmodel.dart';
 import 'package:tarahib_mobile_app/generated/l10n.dart';
@@ -18,6 +20,7 @@ class LoginView extends HookWidget {
     useEffect(() {
       return null;
     });
+    final loginFormKey = GlobalKey<FormState>();
     return ViewModelBuilder.nonReactive(
       viewModelBuilder: () => LoginViewModel(),
       builder: (context, viewModel, child) => Scaffold(
@@ -54,33 +57,43 @@ class LoginView extends HookWidget {
                             spreadRadius: 2,
                             blurRadius: 10)
                       ]),
-                  child: Column(
-                    children: [
-                      Text(
-                        S.current.taraheeb,
-                        style: getAppThem(context)
-                            .textTheme
-                            .titleMedium
-                            ?.copyWith(color: kcPrimaryColor),
-                      ),
-                      Text(
-                        S.current.login_and_planing,
-                        style: getAppThem(context)
-                            .textTheme
-                            .bodyMedium
-                            ?.copyWith(color: kcDarkGreyColor),
-                      ),
-                      verticalSpaceMedium,
-                      AppTextFormFieldWidget(
-                        label: S.current.email,
-                      ),
-                      verticalSpaceMedium,
-                      AppTextFormFieldWidget(
-                        label: S.current.password,
-                      ),
-                      verticalSpaceSmall,
-                      const AppButtonWidget()
-                    ],
+                  child: Form(
+                    key: loginFormKey,
+                    child: Column(
+                      children: [
+                        Text(
+                          S.current.taraheeb,
+                          style: getAppThem(context)
+                              .textTheme
+                              .titleMedium
+                              ?.copyWith(color: kcPrimaryColor),
+                        ),
+                        Text(
+                          S.current.login_and_planing,
+                          style: getAppThem(context)
+                              .textTheme
+                              .bodyMedium
+                              ?.copyWith(color: kcDarkGreyColor),
+                        ),
+                        verticalSpaceMedium,
+                        AppTextFormFieldWidget(
+                          label: S.current.email,
+                          validator:
+                              ValidationBuilder().required().email().build(),
+                        ),
+                        verticalSpaceMedium,
+                        AppTextFormFieldWidget(
+                          label: S.current.password,
+                          validator: ValidationBuilderHelper.passwordValidationBuilder.build(),
+                        ),
+                        verticalSpaceSmall,
+                        AppButtonWidget(
+                          voidCallback: () {
+                            loginFormKey.currentState?.validate();
+                          },
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 const Spacer(),
@@ -132,7 +145,6 @@ class AppTextFormFieldWidget extends StatelessWidget {
       cursorRadius: const Radius.circular(10),
       cursorWidth: 1,
       decoration: InputDecoration(
-          constraints: BoxConstraints(maxHeight: 50.h),
           labelText: label ?? "Label",
           labelStyle: getAppThem(context).textTheme.bodyMedium,
           border: OutlineInputBorder(
