@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:form_validator/form_validator.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:tarahib_mobile_app/app/app.bottomsheets.dart';
 import 'package:tarahib_mobile_app/app/app.dialogs.dart';
@@ -15,7 +16,6 @@ Future<void> main() async {
   await setupLocator();
   setupDialogUi();
   setupBottomSheetUi();
-
   runApp(const MainApp());
 }
 

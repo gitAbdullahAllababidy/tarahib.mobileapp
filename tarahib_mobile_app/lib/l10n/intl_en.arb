@@ -1,4 +1,9 @@
 {
-    "@@locale": "en",
-    "login": "Login"
+  "@@locale": "en",
+  "email": "Email",
+  "login": "Login",
+  "login_and_planing": "NA",
+  "password": "Password",
+  "submit": "Submit",
+  "taraheeb": "Taraheeb"
 }

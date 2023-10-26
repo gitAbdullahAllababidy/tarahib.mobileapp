@@ -50,11 +50,61 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `Email`
+  String get email {
+    return Intl.message(
+      'Email',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Login`
   String get login {
     return Intl.message(
       'Login',
       name: 'login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `NA`
+  String get login_and_planing {
+    return Intl.message(
+      'NA',
+      name: 'login_and_planing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message(
+      'Password',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Submit`
+  String get submit {
+    return Intl.message(
+      'Submit',
+      name: 'submit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Taraheeb`
+  String get taraheeb {
+    return Intl.message(
+      'Taraheeb',
+      name: 'taraheeb',
       desc: '',
       args: [],
     );
