@@ -1,11 +1,12 @@
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:tarahib_mobile_app/core/application/services/network_services.dart';
+import 'package:tarahib_mobile_app/core/data/repositories/auth_repo.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/bottom_sheets/notice/notice_sheet.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/dialogs/info_alert/info_alert_dialog.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/views/home/home_view.dart';
-import 'package:tarahib_mobile_app/core/presentation/ui/views/startup/startup_view.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/views/login/login_view.dart';
+import 'package:tarahib_mobile_app/core/presentation/ui/views/startup/startup_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -19,7 +20,8 @@ import 'package:tarahib_mobile_app/core/presentation/ui/views/login/login_view.d
     LazySingleton(classType: BottomSheetService),
     LazySingleton(classType: DialogService),
     LazySingleton(classType: NavigationService),
-    LazySingleton(classType: NetworkService)
+    LazySingleton(classType: NetworkService),
+    LazySingleton(classType: AuthRepo)
     // @stacked-service
   ],
   bottomsheets: [

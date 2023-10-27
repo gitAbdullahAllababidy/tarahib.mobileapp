@@ -1,8 +1,11 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:stacked/stacked.dart';
+import 'package:tarahib_mobile_app/app/app.locator.dart';
+import 'package:tarahib_mobile_app/core/data/repositories/auth_repo.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/app_colors.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/app_them.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/forms_helpers.dart';
@@ -20,19 +23,12 @@ class LoginView extends HookWidget {
     useEffect(() {
       return null;
     });
+    final emailController = useTextEditingController();
+    final passwordController = useTextEditingController();
     final loginFormKey = GlobalKey<FormState>();
     return ViewModelBuilder.nonReactive(
       viewModelBuilder: () => LoginViewModel(),
       builder: (context, viewModel, child) => Scaffold(
-        appBar: AppBar(
-          title: Text(
-            S.current.login,
-            style: getAppThem(context)
-                .textTheme
-                .titleLarge
-                ?.copyWith(color: kcWhiteColor),
-          ),
-        ),
         body: SingleChildScrollView(
           child: Container(
             height: screenHeight(context),
@@ -78,18 +74,27 @@ class LoginView extends HookWidget {
                         verticalSpaceMedium,
                         AppTextFormFieldWidget(
                           label: S.current.email,
+                          textEditingController: emailController,
                           validator:
                               ValidationBuilder().required().email().build(),
                         ),
                         verticalSpaceMedium,
                         AppTextFormFieldWidget(
                           label: S.current.password,
-                          validator: ValidationBuilderHelper.passwordValidationBuilder.build(),
+                          textEditingController: passwordController,
+                          validator: ValidationBuilderHelper
+                              .passwordValidationBuilder
+                              .build(),
                         ),
                         verticalSpaceSmall,
                         AppButtonWidget(
                           voidCallback: () {
-                            loginFormKey.currentState?.validate();
+                            if (loginFormKey.currentState?.validate() ??
+                                false) {
+                              (locator<AuthRepo>()).loginUser(Tuple2(
+                                  emailController.value.text,
+                                  passwordController.value.text));
+                            }
                           },
                         )
                       ],
