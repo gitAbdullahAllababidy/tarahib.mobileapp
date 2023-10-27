@@ -125,7 +125,7 @@ class AppButtonWidget extends StatelessWidget {
       onPressed: () {
         voidCallback?.call();
       },
-      style: const ButtonStyle(),
+      style: ElevatedButton.styleFrom(backgroundColor: kcPrimaryColor),
       child: Text(label ?? S.current.submit),
     );
   }
