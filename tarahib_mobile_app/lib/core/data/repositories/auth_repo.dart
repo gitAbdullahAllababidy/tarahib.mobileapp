@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:tarahib_mobile_app/core/application/mixins/repo_mixin.dart';
+import 'package:tarahib_mobile_app/core/application/types/types.dart';
 import 'package:tarahib_mobile_app/core/data/data_objects/response_data_object/response_data_object.dart';
 import 'package:tarahib_mobile_app/core/data/data_sources/auth_data_src.dart';
-import 'package:tarahib_mobile_app/core/types/types.dart';
 
 final class AuthRepo with RepoMixin {
   ///LoginUser

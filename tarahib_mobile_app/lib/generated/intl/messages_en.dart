@@ -29,6 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "login_and_planing": MessageLookupByLibrary.simpleMessage("NA"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "submit": MessageLookupByLibrary.simpleMessage("Submit"),
+        "success": MessageLookupByLibrary.simpleMessage("Success"),
         "taraheeb": MessageLookupByLibrary.simpleMessage("Taraheeb")
       };
 }

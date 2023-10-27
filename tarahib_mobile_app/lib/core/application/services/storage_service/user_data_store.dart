@@ -2,7 +2,10 @@ import 'package:hive/hive.dart';
 
 final class UserDataStore {
   static const userDataBoxTitle = 'USER_DATA_BOX';
-  static late Box<Map> userDataBox;
-  static Future open() async =>
-      userDataBox = await Hive.openBox<Map>(userDataBoxTitle);
+  static Box<Map<String, dynamic>>? userDataBox;
+  static Future open() async {
+    var storedUserData =
+        await Hive.openBox<Map<String, dynamic>>(userDataBoxTitle);
+    userDataBox = storedUserData;
+  }
 }

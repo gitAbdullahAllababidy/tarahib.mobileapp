@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "سجل دخول وخطط للمناسبات الرائعة"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "submit": MessageLookupByLibrary.simpleMessage("تأكيد"),
+        "success": MessageLookupByLibrary.simpleMessage("تمت العملية بنجاح"),
         "taraheeb": MessageLookupByLibrary.simpleMessage("تراحيب")
       };
 }

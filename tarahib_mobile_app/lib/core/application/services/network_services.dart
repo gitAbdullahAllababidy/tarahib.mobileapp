@@ -3,8 +3,8 @@ import 'package:dio/dio.dart';
 import 'package:talker_dio_logger/talker_dio_logger_interceptor.dart';
 import 'package:talker_dio_logger/talker_dio_logger_settings.dart';
 import 'package:tarahib_mobile_app/app/app.dart';
+import 'package:tarahib_mobile_app/core/application/types/types.dart';
 import 'package:tarahib_mobile_app/core/data/data_objects/response_data_object/response_data_object.dart';
-import 'package:tarahib_mobile_app/core/types/types.dart';
 
 final class NetworkService {
   final _dio = Dio();

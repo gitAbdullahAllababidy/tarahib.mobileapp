@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stacked/stacked.dart';
+import 'package:tarahib_mobile_app/core/presentation/ui/common/app_colors.dart';
+import 'package:tarahib_mobile_app/core/presentation/ui/common/app_them.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/ui_helpers.dart';
+import 'package:tarahib_mobile_app/generated/l10n.dart';
 
 import 'startup_viewmodel.dart';
 
@@ -15,16 +18,19 @@ class StartupView extends StackedView<StartupViewModel> {
     StartupViewModel viewModel,
     Widget? child,
   ) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'STACKED',
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900),
+              S.current.taraheeb,
+              style: getAppThem(context)
+                  .textTheme
+                  .titleLarge
+                  ?.copyWith(color: kcPrimaryColor, fontSize: 60.sp),
             ),
-            Row(
+            const Row(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text('Loading ...', style: TextStyle(fontSize: 16)),
@@ -36,7 +42,7 @@ class StartupView extends StackedView<StartupViewModel> {
                     color: Colors.black,
                     strokeWidth: 6,
                   ),
-                )
+                ),
               ],
             ),
           ],

@@ -24,7 +24,7 @@ class LoginView extends HookWidget {
     final emailController = useTextEditingController();
     final passwordController = useTextEditingController();
     final loginFormKey = GlobalKey<FormState>();
-    return ViewModelBuilder.nonReactive(
+    return ViewModelBuilder<LoginViewModel>.nonReactive(
       disposeViewModel: false,
       onViewModelReady: (viewModel) => {},
       viewModelBuilder: () => LoginViewModel(),
@@ -89,9 +89,12 @@ class LoginView extends HookWidget {
                         verticalSpaceSmall,
                         AppButtonWidget(
                           voidCallback: () {
-                            viewModel.loginModel.loginUser(Tuple2(
-                                emailController.value.text,
-                                passwordController.value.text));
+                            if (loginFormKey.currentState?.validate() ??
+                                false) {
+                              viewModel.loginModel.loginUser(Tuple2(
+                                  emailController.value.text,
+                                  passwordController.value.text));
+                            }
                           },
                         )
                       ],

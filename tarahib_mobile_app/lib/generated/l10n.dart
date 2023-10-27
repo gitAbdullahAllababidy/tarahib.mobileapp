@@ -110,6 +110,16 @@ class S {
     );
   }
 
+  /// `Success`
+  String get success {
+    return Intl.message(
+      'Success',
+      name: 'success',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Taraheeb`
   String get taraheeb {
     return Intl.message(

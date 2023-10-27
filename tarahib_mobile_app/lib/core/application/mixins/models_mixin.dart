@@ -1,22 +1,18 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:dio/dio.dart';
-import 'package:provider/provider.dart';
 import 'package:stacked/stacked.dart';
-import 'package:stacked_services/stacked_services.dart';
 import 'package:tarahib_mobile_app/core/data/data_objects/response_data_object/response_data_object.dart';
 
-mixin ModelsMixin<ViewModel extends BaseViewModel> {
-  ViewModel get viewModel =>
-      Provider.of<ViewModel>(StackedService.navigatorKey!.currentContext!);
+abstract class ModelsAbstract<ViewModel extends BaseViewModel> {
+  final ViewModel viewModel;
 
+  ModelsAbstract(this.viewModel);
   showError(error) {
     if (error is DioException) {
       return switch (error.type) {
         DioExceptionType.cancel => BotToast.showText(text: error.message ?? ""),
-        DioExceptionType.connectionError =>
-          BotToast.showText(text: ""),
-        DioExceptionType.connectionTimeout =>
-          BotToast.showText(text: ""),
+        DioExceptionType.connectionError => BotToast.showText(text: ""),
+        DioExceptionType.connectionTimeout => BotToast.showText(text: ""),
         _ => BotToast.showText(text: error.message ?? "")
       };
     }
