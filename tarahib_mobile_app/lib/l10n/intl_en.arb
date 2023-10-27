@@ -1,6 +1,7 @@
 {
   "@@locale": "en",
   "email": "Email",
+  "internetConnectionMsg": "No internet connection",
   "login": "Login",
   "login_and_planing": "NA",
   "password": "Password",

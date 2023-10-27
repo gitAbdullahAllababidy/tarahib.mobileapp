@@ -4,12 +4,9 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:form_validator/form_validator.dart';
 import 'package:stacked/stacked.dart';
-import 'package:tarahib_mobile_app/app/app.locator.dart';
-import 'package:tarahib_mobile_app/core/data/repositories/auth_repo.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/app_colors.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/app_them.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/forms_helpers.dart';
-import 'package:tarahib_mobile_app/core/presentation/ui/common/loading_helpers.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/ui_helpers.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/views/login/login_viewmodel.dart';
 import 'package:tarahib_mobile_app/generated/l10n.dart';
@@ -28,6 +25,8 @@ class LoginView extends HookWidget {
     final passwordController = useTextEditingController();
     final loginFormKey = GlobalKey<FormState>();
     return ViewModelBuilder.nonReactive(
+      disposeViewModel: false,
+      onViewModelReady: (viewModel) => {},
       viewModelBuilder: () => LoginViewModel(),
       builder: (context, viewModel, child) => Scaffold(
         body: SingleChildScrollView(
@@ -90,15 +89,9 @@ class LoginView extends HookWidget {
                         verticalSpaceSmall,
                         AppButtonWidget(
                           voidCallback: () {
-                            if (loginFormKey.currentState?.validate() ??
-                                false) {
-                              final authRepo = (locator<AuthRepo>());
-                              appLoadingCallback(
-                                  authRepo.loginUser(Tuple2(
-                                      emailController.value.text,
-                                      passwordController.value.text)),
-                                  cancelToken: authRepo.cancelToken);
-                            }
+                            viewModel.loginModel.loginUser(Tuple2(
+                                emailController.value.text,
+                                passwordController.value.text));
                           },
                         )
                       ],

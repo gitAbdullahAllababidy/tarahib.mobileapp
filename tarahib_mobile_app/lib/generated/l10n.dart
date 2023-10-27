@@ -60,6 +60,16 @@ class S {
     );
   }
 
+  /// `No internet connection`
+  String get internetConnectionMsg {
+    return Intl.message(
+      'No internet connection',
+      name: 'internetConnectionMsg',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Login`
   String get login {
     return Intl.message(

@@ -4,6 +4,7 @@ import 'package:talker_dio_logger/talker_dio_logger_interceptor.dart';
 import 'package:talker_dio_logger/talker_dio_logger_settings.dart';
 import 'package:tarahib_mobile_app/app/app.dart';
 import 'package:tarahib_mobile_app/core/data/data_objects/response_data_object/response_data_object.dart';
+import 'package:tarahib_mobile_app/core/types/types.dart';
 
 final class NetworkService {
   final _dio = Dio();
@@ -24,7 +25,7 @@ final class NetworkService {
       );
   }
 
-  Future<Response<Map>> getRequest(
+  Future<AppResponseType<ResponseDataObject>> getRequest(
     String path, {
     Object? data,
     List<Interceptor>? interceptors,
@@ -32,24 +33,32 @@ final class NetworkService {
     Options? options,
     CancelToken? cancelToken,
     ProgressCallback? onReceiveProgress,
-  }) {
+  }) async {
+    ResponseDataObject? responseDataObject;
     try {
       if (interceptors is List<Interceptor>) {
         _dio.interceptors.addAll(interceptors);
       }
-
-      return _dio.get<Map>(path,
+      final res = await _dio.get<Map>(path,
           data: data,
           queryParameters: queryParameters,
           options: options,
           cancelToken: cancelToken,
           onReceiveProgress: onReceiveProgress);
-    } on Exception {
-      rethrow;
+      final resData = res.data as Map<String, dynamic>;
+      responseDataObject = ResponseDataObject.fromMap(resData);
+
+      return right(responseDataObject);
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return _dioExceptionHandler(e);
+      }
+
+      return left(e);
     }
   }
 
-  Future<Either<dynamic, ResponseDataObject>?> postRequest(
+  Future<AppResponseType<ResponseDataObject>> postRequest(
     String path, {
     Object? data,
     Map<String, dynamic>? queryParameters,
@@ -59,7 +68,7 @@ final class NetworkService {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-     ResponseDataObject? responseDataObject;
+    ResponseDataObject? responseDataObject;
     try {
       if (interceptors is List<Interceptor>) {
         _dio.interceptors.addAll(interceptors);
@@ -77,24 +86,26 @@ final class NetworkService {
       return right(responseDataObject);
     } on Exception catch (e) {
       if (e is DioException) {
-        return _dioExceptionHandler(e, responseDataObject);
+        return _dioExceptionHandler(e);
       }
+
       return left(e);
-    } finally {}
+    }
   }
 
   ///Dio Exception handler
-  Either<dynamic, ResponseDataObject<dynamic>> _dioExceptionHandler(
-      DioException e, ResponseDataObject<dynamic>? responseDataObject) {
+  Either<dynamic, ResponseDataObject> _dioExceptionHandler(
+    DioException e,
+  ) {
     return switch (e.type) {
-      DioExceptionType.badResponse => left(responseDataObject),
-      DioExceptionType.connectionTimeout => left(e),
-      DioExceptionType.sendTimeout => left(e),
-      DioExceptionType.receiveTimeout => left(e),
-      DioExceptionType.badCertificate => left(e),
-      DioExceptionType.cancel => left(e),
-      DioExceptionType.connectionError => left(e),
-      DioExceptionType.unknown => left(e),
+      DioExceptionType.badResponse => _responseDataObjectError(e),
+      _ => left(e)
     };
+  }
+
+  AppResponseType<ResponseDataObject> _responseDataObjectError(DioException e) {
+    final errorResponseDataObject =
+        ResponseDataObject.fromMap(e.response?.data ?? {});
+    return left(errorResponseDataObject);
   }
 }

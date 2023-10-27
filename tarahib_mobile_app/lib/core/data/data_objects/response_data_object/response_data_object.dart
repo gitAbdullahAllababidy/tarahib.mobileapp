@@ -4,10 +4,10 @@ import 'dart:convert';
 
 import 'package:collection/collection.dart';
 
-class ResponseDataObject<D> {
+class ResponseDataObject {
   bool? success;
   String? message;
-  D? data;
+  Map<String, dynamic>? data;
 
   ResponseDataObject({this.success, this.message, this.data});
 
