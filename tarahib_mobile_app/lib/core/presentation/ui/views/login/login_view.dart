@@ -9,6 +9,7 @@ import 'package:tarahib_mobile_app/core/data/repositories/auth_repo.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/app_colors.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/app_them.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/forms_helpers.dart';
+import 'package:tarahib_mobile_app/core/presentation/ui/common/loading_helpers.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/ui_helpers.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/views/login/login_viewmodel.dart';
 import 'package:tarahib_mobile_app/generated/l10n.dart';
@@ -91,9 +92,12 @@ class LoginView extends HookWidget {
                           voidCallback: () {
                             if (loginFormKey.currentState?.validate() ??
                                 false) {
-                              (locator<AuthRepo>()).loginUser(Tuple2(
-                                  emailController.value.text,
-                                  passwordController.value.text));
+                              final authRepo = (locator<AuthRepo>());
+                              appLoadingCallback(
+                                  authRepo.loginUser(Tuple2(
+                                      emailController.value.text,
+                                      passwordController.value.text)),
+                                  cancelToken: authRepo.cancelToken);
                             }
                           },
                         )

@@ -28,6 +28,6 @@ Future<void> setupLocator({
   locator.registerLazySingleton(() => BottomSheetService());
   locator.registerLazySingleton(() => DialogService());
   locator.registerLazySingleton(() => NavigationService());
-  locator.registerLazySingleton(() => NetworkService());
-  locator.registerLazySingleton(() => AuthRepo());
+  locator.registerFactory(() => NetworkService());
+  locator.registerFactory(() => AuthRepo());
 }

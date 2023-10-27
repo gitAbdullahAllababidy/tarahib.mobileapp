@@ -17,6 +17,7 @@ Future<void> main() async {
   await setupLocator();
   setupDialogUi();
   setupBottomSheetUi();
+
   runApp(const MainApp());
 }
 
@@ -26,6 +27,7 @@ class MainApp extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final botToastBuilder = BotToastInit();
+
     return ScreenUtilInit(
       useInheritedMediaQuery: true,
       minTextAdapt: true,
@@ -34,7 +36,9 @@ class MainApp extends HookWidget {
         return MaterialApp(
             home: child,
             builder: (context, child) {
-              return botToastBuilder(context, child);
+              child = botToastBuilder(context, child);
+
+              return child;
             },
             initialRoute: Routes.startupView,
             onGenerateRoute: StackedRouter().onGenerateRoute,

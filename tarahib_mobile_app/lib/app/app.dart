@@ -20,8 +20,8 @@ import 'package:tarahib_mobile_app/core/presentation/ui/views/startup/startup_vi
     LazySingleton(classType: BottomSheetService),
     LazySingleton(classType: DialogService),
     LazySingleton(classType: NavigationService),
-    LazySingleton(classType: NetworkService),
-    LazySingleton(classType: AuthRepo)
+    Factory(classType: NetworkService),
+    Factory(classType: AuthRepo)
     // @stacked-service
   ],
   bottomsheets: [

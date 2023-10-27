@@ -59,7 +59,7 @@ final class NetworkService {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    late ResponseDataObject responseDataObject;
+     ResponseDataObject? responseDataObject;
     try {
       if (interceptors is List<Interceptor>) {
         _dio.interceptors.addAll(interceptors);
@@ -80,12 +80,12 @@ final class NetworkService {
         return _dioExceptionHandler(e, responseDataObject);
       }
       return left(e);
-    }
+    } finally {}
   }
 
   ///Dio Exception handler
   Either<dynamic, ResponseDataObject<dynamic>> _dioExceptionHandler(
-      DioException e, ResponseDataObject<dynamic> responseDataObject) {
+      DioException e, ResponseDataObject<dynamic>? responseDataObject) {
     return switch (e.type) {
       DioExceptionType.badResponse => left(responseDataObject),
       DioExceptionType.connectionTimeout => left(e),
