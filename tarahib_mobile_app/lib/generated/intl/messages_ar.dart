@@ -36,6 +36,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "login_and_planing": MessageLookupByLibrary.simpleMessage(
             "سجل دخول وخطط للمناسبات الرائعة"),
         "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+        "logoutAlertTitle":
+            MessageLookupByLibrary.simpleMessage("تنبيه تسجيل خروج"),
+        "logoutMessage": MessageLookupByLibrary.simpleMessage(
+            "عملية تسجيل الخروج تؤدي الى حذف جميع البيانات الخاصة بك"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "scheduledInvitations":
             MessageLookupByLibrary.simpleMessage("الدعوات المجدولة"),

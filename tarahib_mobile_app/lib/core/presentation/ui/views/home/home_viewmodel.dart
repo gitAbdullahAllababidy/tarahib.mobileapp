@@ -1,12 +1,13 @@
+import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
 import 'package:tarahib_mobile_app/app/app.bottomsheets.dart';
 import 'package:tarahib_mobile_app/app/app.dialogs.dart';
 import 'package:tarahib_mobile_app/app/app.locator.dart';
+import 'package:tarahib_mobile_app/core/application/services/light_services/logout_service.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/app_strings.dart';
-import 'package:stacked/stacked.dart';
-import 'package:stacked_services/stacked_services.dart';
+import 'package:tarahib_mobile_app/generated/l10n.dart';
 
-class HomeViewModel extends BaseViewModel  {
-  
+class HomeViewModel extends BaseViewModel {
   final _dialogService = locator<DialogService>();
   final _bottomSheetService = locator<BottomSheetService>();
 
@@ -20,11 +21,18 @@ class HomeViewModel extends BaseViewModel  {
   }
 
   void showDialog() {
-    _dialogService.showCustomDialog(
+    _dialogService
+        .showCustomDialog(
+      barrierDismissible: true,
       variant: DialogType.infoAlert,
-      title: 'Stacked Rocks!',
-      description: 'Give stacked $_counter stars on Github',
-    );
+      title: S.current.logoutAlertTitle,
+      description: S.current.logoutMessage,
+    )
+        .then((value) {
+      if (value?.confirmed ?? false) {
+        LogoutServices.logout();
+      }
+    });
   }
 
   void showBottomSheet() {

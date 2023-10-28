@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tarahib_mobile_app/core/presentation/ui/common/app_colors.dart';
-import 'package:tarahib_mobile_app/core/presentation/ui/common/ui_helpers.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:tarahib_mobile_app/core/presentation/ui/common/app_colors.dart';
+import 'package:tarahib_mobile_app/core/presentation/ui/common/ui_helpers.dart';
+import 'package:tarahib_mobile_app/generated/l10n.dart';
 
 import 'info_alert_dialog_model.dart';
 
@@ -67,7 +68,7 @@ class InfoAlertDialog extends StackedView<InfoAlertDialogModel> {
                   ),
                   alignment: Alignment.center,
                   child: const Text(
-                    '⭐️',
+                    '⚠️',
                     style: TextStyle(fontSize: 30),
                   ),
                 )
@@ -83,12 +84,12 @@ class InfoAlertDialog extends StackedView<InfoAlertDialogModel> {
                 width: double.infinity,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: Colors.black,
+                  color: kcMediumGrey,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: const Text(
-                  'Got it',
-                  style: TextStyle(
+                child: Text(
+                  S.current.submit,
+                  style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 16,

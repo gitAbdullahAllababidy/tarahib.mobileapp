@@ -10,6 +10,8 @@
   "login": "Login",
   "login_and_planing": "NA",
   "logout": "Logout",
+  "logoutAlertTitle": "Logout alert",
+  "logoutMessage": "By you submotting logout, all your data will be erased",
   "password": "Password",
   "scheduledInvitations": "Scheduled invitations",
   "sendInvitations": "Send Invitations",

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:provider/provider.dart';
 import 'package:stacked/stacked.dart';
-import 'package:tarahib_mobile_app/core/application/services/light_services/logout_service.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/app_colors.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/app_them.dart';
 import 'package:tarahib_mobile_app/generated/l10n.dart';
@@ -39,6 +39,7 @@ class HomeDrawerWidget extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final viewModel = Provider.of<HomeViewModel>(context, listen: false);
     return Drawer(
       child: ListView(
         children: [
@@ -79,7 +80,7 @@ class HomeDrawerWidget extends HookWidget {
             isSelected: false,
             label: S.current.logout,
             icon: Icons.logout_outlined,
-            onTap: ()=> LogoutServices.logout(),
+            onTap: () => viewModel.showDialog(),
           ),
         ],
       ),

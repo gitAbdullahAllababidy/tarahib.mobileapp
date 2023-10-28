@@ -10,11 +10,13 @@
   "login": "تسجيل الدخول",
   "login_and_planing": "سجل دخول وخطط للمناسبات الرائعة",
   "logout": "تسجيل الخروج",
+  "logoutAlertTitle": "تنبيه تسجيل خروج",
+  "logoutMessage": "عملية تسجيل الخروج تؤدي الى حذف جميع البيانات الخاصة بك",
   "password": "كلمة المرور",
   "scheduledInvitations": "الدعوات المجدولة",
   "sendInvitations": "إرسال الدعوات",
   "submit": "تأكيد",
   "success": "تمت العملية بنجاح",
-  "taraheeb": "تراحيب"
   
+  "taraheeb": "تراحيب"
 }

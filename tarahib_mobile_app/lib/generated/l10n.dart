@@ -150,6 +150,26 @@ class S {
     );
   }
 
+  /// `Logout alert`
+  String get logoutAlertTitle {
+    return Intl.message(
+      'Logout alert',
+      name: 'logoutAlertTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `By you submotting logout, all your data will be erased`
+  String get logoutMessage {
+    return Intl.message(
+      'By you submotting logout, all your data will be erased',
+      name: 'logoutMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Password`
   String get password {
     return Intl.message(

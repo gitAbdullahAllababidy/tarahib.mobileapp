@@ -35,6 +35,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "login_and_planing": MessageLookupByLibrary.simpleMessage("NA"),
         "logout": MessageLookupByLibrary.simpleMessage("Logout"),
+        "logoutAlertTitle":
+            MessageLookupByLibrary.simpleMessage("Logout alert"),
+        "logoutMessage": MessageLookupByLibrary.simpleMessage(
+            "By you submotting logout, all your data will be erased"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "scheduledInvitations":
             MessageLookupByLibrary.simpleMessage("Scheduled invitations"),
