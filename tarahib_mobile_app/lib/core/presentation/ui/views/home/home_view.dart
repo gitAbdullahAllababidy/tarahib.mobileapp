@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:stacked/stacked.dart';
+import 'package:tarahib_mobile_app/core/application/services/light_services/logout_service.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/app_colors.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/app_them.dart';
 import 'package:tarahib_mobile_app/generated/l10n.dart';
@@ -78,8 +79,8 @@ class HomeDrawerWidget extends HookWidget {
             isSelected: false,
             label: S.current.logout,
             icon: Icons.logout_outlined,
+            onTap: ()=> LogoutServices.logout(),
           ),
-
         ],
       ),
     );
@@ -91,26 +92,33 @@ class DrawerButtonWidget extends HookWidget {
     this.isSelected = false,
     this.label,
     this.icon,
+    this.onTap,
     super.key,
   });
   final bool isSelected;
   final String? label;
   final IconData? icon;
+  final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(color: isSelected ? kcPrimaryColor : null),
-      child: ListTile(
-        title: Text(
-          label ?? S.current.contacts,
-          style: getAppThem(context)
-              .textTheme
-              .bodyLarge
-              ?.copyWith(color: isSelected ? kcWhiteColor : kcMediumGrey),
-        ),
-        leading: Icon(
-          icon ?? Icons.contacts_outlined,
-          color: isSelected ? kcWhiteColor : kcMediumGrey,
+    return InkWell(
+      onTap: () {
+        onTap?.call();
+      },
+      child: Container(
+        decoration: BoxDecoration(color: isSelected ? kcPrimaryColor : null),
+        child: ListTile(
+          title: Text(
+            label ?? S.current.contacts,
+            style: getAppThem(context)
+                .textTheme
+                .bodyLarge
+                ?.copyWith(color: isSelected ? kcWhiteColor : kcMediumGrey),
+          ),
+          leading: Icon(
+            icon ?? Icons.contacts_outlined,
+            color: isSelected ? kcWhiteColor : kcMediumGrey,
+          ),
         ),
       ),
     );

@@ -15,7 +15,7 @@ class ResponseDataObject {
     return ResponseDataObject(
         success: data['success'] as bool?,
         message: data['message'] as String?,
-        data: data['data']);
+        data: data['data'] as Map<String, dynamic>);
   }
 
   Map<String, dynamic> toMap() =>

@@ -11,12 +11,10 @@ class LoginDataObject {
 
   LoginDataObject({this.token, this.user});
 
-  factory LoginDataObject.fromMap(Map<String, dynamic> data) {
+  factory LoginDataObject.fromMap(Map data) {
     return LoginDataObject(
       token: data['token'] as String?,
-      user: data['user'] == null
-          ? null
-          : User.fromMap(data['user'] as Map<String, dynamic>),
+      user: data['user'] == null ? null : User.fromMap(data['user']),
     );
   }
 

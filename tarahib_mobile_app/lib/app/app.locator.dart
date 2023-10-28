@@ -12,6 +12,7 @@ import 'package:stacked_services/src/navigation/navigation_service.dart';
 import 'package:stacked_shared/stacked_shared.dart';
 
 import '../core/application/services/network_services.dart';
+import '../core/application/services/storage_service/user_data_store.dart';
 import '../core/data/repositories/auth_repo.dart';
 
 final locator = StackedLocator.instance;
@@ -28,6 +29,7 @@ Future<void> setupLocator({
   locator.registerLazySingleton(() => BottomSheetService());
   locator.registerLazySingleton(() => DialogService());
   locator.registerLazySingleton(() => NavigationService());
+  locator.registerLazySingleton(() => UserDataStore());
   locator.registerFactory(() => NetworkService());
   locator.registerFactory(() => AuthRepo());
 }

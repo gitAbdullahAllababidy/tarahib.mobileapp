@@ -3,7 +3,6 @@ import 'package:dartz/dartz.dart';
 import 'package:tarahib_mobile_app/app/app.locator.dart';
 import 'package:tarahib_mobile_app/app/app.router.dart';
 import 'package:tarahib_mobile_app/core/application/mixins/models_mixin.dart';
-import 'package:tarahib_mobile_app/core/application/services/storage_service/user_data_store.dart';
 import 'package:tarahib_mobile_app/core/data/data_objects/response_data_object/response_data_object.dart';
 import 'package:tarahib_mobile_app/core/data/repositories/auth_repo.dart';
 import 'package:tarahib_mobile_app/core/global/global_locators.dart';
@@ -32,7 +31,7 @@ final class LoginModel extends ModelsAbstract<LoginViewModel> {
     final userInfo = r.data;
     if (userInfo != null) {
       ///Save user data
-      UserDataStore.userDataBox?.add(userInfo);
+      userDataStore.add(Map<String, dynamic>.from(userInfo));
       navigationService.replaceWithHomeView();
     }
   }
