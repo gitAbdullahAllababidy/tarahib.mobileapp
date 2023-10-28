@@ -1,10 +1,18 @@
 {
   "@@locale": "en",
+  "alreadySentInvitations": "Sent invitations",
+  "audience": "Audience",
+  "contacts": "Contacts",
   "email": "Email",
+  "groups": "Groups",
   "internetConnectionMsg": "No internet connection",
+  "invitationsSettings": "Invitations settings",
   "login": "Login",
   "login_and_planing": "NA",
+  "logout": "Logout",
   "password": "Password",
+  "scheduledInvitations": "Scheduled invitations",
+  "sendInvitations": "Send Invitations",
   "submit": "Submit",
   "success": "Success",
   "taraheeb": "Taraheeb"

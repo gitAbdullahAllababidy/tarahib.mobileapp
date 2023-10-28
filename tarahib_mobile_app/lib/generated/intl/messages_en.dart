@@ -22,12 +22,24 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "alreadySentInvitations":
+            MessageLookupByLibrary.simpleMessage("Sent invitations"),
+        "audience": MessageLookupByLibrary.simpleMessage("Audience"),
+        "contacts": MessageLookupByLibrary.simpleMessage("Contacts"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "groups": MessageLookupByLibrary.simpleMessage("Groups"),
         "internetConnectionMsg":
             MessageLookupByLibrary.simpleMessage("No internet connection"),
+        "invitationsSettings":
+            MessageLookupByLibrary.simpleMessage("Invitations settings"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "login_and_planing": MessageLookupByLibrary.simpleMessage("NA"),
+        "logout": MessageLookupByLibrary.simpleMessage("Logout"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "scheduledInvitations":
+            MessageLookupByLibrary.simpleMessage("Scheduled invitations"),
+        "sendInvitations":
+            MessageLookupByLibrary.simpleMessage("Send Invitations"),
         "submit": MessageLookupByLibrary.simpleMessage("Submit"),
         "success": MessageLookupByLibrary.simpleMessage("Success"),
         "taraheeb": MessageLookupByLibrary.simpleMessage("Taraheeb")

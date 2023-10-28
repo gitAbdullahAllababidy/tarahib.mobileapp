@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/app_colors.dart';
 
 ThemeData setAppThem() => ThemeData(
+    drawerTheme: const DrawerThemeData(),
     appBarTheme: const AppBarTheme(color: kcPrimaryColor),
     textTheme: TextTheme(
       titleLarge: GoogleFonts.cairo(

@@ -1,10 +1,18 @@
 {
   "@@locale": "ar",
+  "alreadySentInvitations": "الدعوات المرسلة",
+  "audience": "الحضور",
+  "contacts": "جهات الاتصال",
   "email": "البريد الالكتروني",
+  "groups": "المجموعات",
   "internetConnectionMsg": "لا يوجد اتصال بالشبكة، عاود لاحقاً",
+  "invitationsSettings": "إعدادات الدعوات",
   "login": "تسجيل الدخول",
   "login_and_planing": "سجل دخول وخطط للمناسبات الرائعة",
+  "logout": "تسجيل الخروج",
   "password": "كلمة المرور",
+  "scheduledInvitations": "الدعوات المجدولة",
+  "sendInvitations": "إرسال الدعوات",
   "submit": "تأكيد",
   "success": "تمت العملية بنجاح",
   "taraheeb": "تراحيب"

@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="tarahib_mobile_app"
+        android:label="تراحيب"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

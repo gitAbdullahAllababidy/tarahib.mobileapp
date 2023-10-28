@@ -5,7 +5,8 @@ import 'package:tarahib_mobile_app/core/presentation/ui/common/app_strings.dart'
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
-class HomeViewModel extends BaseViewModel {
+class HomeViewModel extends BaseViewModel  {
+  
   final _dialogService = locator<DialogService>();
   final _bottomSheetService = locator<BottomSheetService>();
 

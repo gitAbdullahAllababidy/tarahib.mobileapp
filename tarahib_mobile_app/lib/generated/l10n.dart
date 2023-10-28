@@ -50,6 +50,36 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `Sent invitations`
+  String get alreadySentInvitations {
+    return Intl.message(
+      'Sent invitations',
+      name: 'alreadySentInvitations',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Audience`
+  String get audience {
+    return Intl.message(
+      'Audience',
+      name: 'audience',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Contacts`
+  String get contacts {
+    return Intl.message(
+      'Contacts',
+      name: 'contacts',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Email`
   String get email {
     return Intl.message(
@@ -60,11 +90,31 @@ class S {
     );
   }
 
+  /// `Groups`
+  String get groups {
+    return Intl.message(
+      'Groups',
+      name: 'groups',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `No internet connection`
   String get internetConnectionMsg {
     return Intl.message(
       'No internet connection',
       name: 'internetConnectionMsg',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invitations settings`
+  String get invitationsSettings {
+    return Intl.message(
+      'Invitations settings',
+      name: 'invitationsSettings',
       desc: '',
       args: [],
     );
@@ -90,11 +140,41 @@ class S {
     );
   }
 
+  /// `Logout`
+  String get logout {
+    return Intl.message(
+      'Logout',
+      name: 'logout',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Password`
   String get password {
     return Intl.message(
       'Password',
       name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Scheduled invitations`
+  String get scheduledInvitations {
+    return Intl.message(
+      'Scheduled invitations',
+      name: 'scheduledInvitations',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send Invitations`
+  String get sendInvitations {
+    return Intl.message(
+      'Send Invitations',
+      name: 'sendInvitations',
       desc: '',
       args: [],
     );

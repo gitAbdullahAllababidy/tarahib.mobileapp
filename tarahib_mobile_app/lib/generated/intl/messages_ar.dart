@@ -22,13 +22,25 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "alreadySentInvitations":
+            MessageLookupByLibrary.simpleMessage("الدعوات المرسلة"),
+        "audience": MessageLookupByLibrary.simpleMessage("الحضور"),
+        "contacts": MessageLookupByLibrary.simpleMessage("جهات الاتصال"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
+        "groups": MessageLookupByLibrary.simpleMessage("المجموعات"),
         "internetConnectionMsg": MessageLookupByLibrary.simpleMessage(
             "لا يوجد اتصال بالشبكة، عاود لاحقاً"),
+        "invitationsSettings":
+            MessageLookupByLibrary.simpleMessage("إعدادات الدعوات"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "login_and_planing": MessageLookupByLibrary.simpleMessage(
             "سجل دخول وخطط للمناسبات الرائعة"),
+        "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+        "scheduledInvitations":
+            MessageLookupByLibrary.simpleMessage("الدعوات المجدولة"),
+        "sendInvitations":
+            MessageLookupByLibrary.simpleMessage("إرسال الدعوات"),
         "submit": MessageLookupByLibrary.simpleMessage("تأكيد"),
         "success": MessageLookupByLibrary.simpleMessage("تمت العملية بنجاح"),
         "taraheeb": MessageLookupByLibrary.simpleMessage("تراحيب")

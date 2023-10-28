@@ -44,6 +44,7 @@ class MainApp extends HookWidget {
             onGenerateRoute: StackedRouter().onGenerateRoute,
             debugShowCheckedModeBanner: kDebugMode,
             navigatorKey: StackedService.navigatorKey,
+            title: "تراحيب",
             localizationsDelegates: const [
               S.delegate,
               GlobalMaterialLocalizations.delegate,
