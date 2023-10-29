@@ -4,6 +4,7 @@ import 'package:tarahib_mobile_app/core/application/mixins/models_mixin.dart';
 import 'package:tarahib_mobile_app/core/data/data_objects/contacts_list_object/contacts_list_object.dart';
 import 'package:tarahib_mobile_app/core/data/repositories/contacts_repo.dart';
 import 'package:tarahib_mobile_app/core/global/global_locators.dart';
+import 'package:tarahib_mobile_app/core/presentation/ui/common/loading_helpers.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/views/home/home_viewmodel.dart';
 
 final class ShowContactsModel extends ModelsAbstract<HomeViewModel> {
@@ -12,19 +13,22 @@ final class ShowContactsModel extends ModelsAbstract<HomeViewModel> {
   var contactsList = <ContactsListObject>[];
 
   getAllContacts() {
+    if (contactsList.isNotEmpty) {
+      return;
+    }
     var contactRepo = locator<ContactsRepo>();
-    viewModel?.runBusyFuture(
-        contactRepo.getAllContacts().then((value) => value.fold(
-            (l) => showError(l),
-            (r) => {
-                  if (r.data is List)
-                    {
-                      contactsList = (r.data as List)
-                          .map((e) => ContactsListObject.fromMap(e))
-                          .toList(),
-                    }
-                })),
-        busyObject: contactsList);
+    appLoadingCallback(viewModel.runBusyFuture(
+      contactRepo.getAllContacts().then((value) => value.fold(
+          (l) => showError(l),
+          (r) => {
+                if (r.data is List)
+                  {
+                    contactsList = (r.data as List)
+                        .map((e) => ContactsListObject.fromMap(e))
+                        .toList(),
+                  }
+              })),
+    ));
   }
 
   List<DataRow> get getDataRows {

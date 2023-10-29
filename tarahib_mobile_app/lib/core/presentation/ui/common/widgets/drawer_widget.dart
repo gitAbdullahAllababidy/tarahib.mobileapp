@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:tarahib_mobile_app/app/app.router.dart';
+import 'package:tarahib_mobile_app/core/application/services/light_services/logout_service.dart';
 import 'package:tarahib_mobile_app/core/global/global_locators.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/app_colors.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/app_them.dart';
+import 'package:tarahib_mobile_app/core/presentation/ui/common/ui_helpers.dart';
 
 class HomeDrawerWidget extends HookWidget {
   const HomeDrawerWidget({
@@ -18,34 +20,64 @@ class HomeDrawerWidget extends HookWidget {
     return Drawer(
       child: ListView(
         children: [
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 14).copyWith(top: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(
+                      userDataStore.getUserName.toUpperCase(),
+                      style: getThem.textTheme.titleLarge,
+                    ),
+                    Text(
+                      userDataStore.getUserEmail,
+                      style:
+                          getThem.textTheme.bodyMedium?.copyWith(fontSize: 20),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+          spacedDivider,
           DrawerButtonWidget(
             isSelected: currentRouteService.currentRoute == Routes.homeView,
             onTap: navigationService.replaceWithHomeView,
           ),
+          // DrawerButtonWidget(
+          //   onTap: navigationService.replaceWithGroupsView,
+          //  isSelected: currentRouteService.currentRoute == Routes.groupsView,
+          //   label: local.groups,
+          //   icon: Icons.group_outlined,
+          // ),
+          spacedDivider,
           DrawerButtonWidget(
-            onTap: navigationService.replaceWithGroupsView,
-           isSelected: currentRouteService.currentRoute == Routes.groupsView,
-            label: local.groups,
-            icon: Icons.group_outlined,
-          ),
-          DrawerButtonWidget(
-            isSelected: false,
+            isSelected:
+                currentRouteService.currentRoute == Routes.invitesSettingsView,
+            onTap: navigationService.replaceWithInvitesSettingsView,
             label: local.invitationsSettings,
             icon: Icons.settings_applications_outlined,
           ),
           DrawerButtonWidget(
-            isSelected: false,
-            label: local.sendInvitations,
+            isSelected:
+                currentRouteService.currentRoute == Routes.sendInvitesView,
+            onTap: navigationService.replaceWithSendInvitesView,
             icon: Icons.send_time_extension_outlined,
           ),
           DrawerButtonWidget(
-            isSelected: false,
-            label: local.alreadySentInvitations,
+            isSelected: currentRouteService.currentRoute ==
+                Routes.alreadySentInvitesView,
+            onTap: navigationService.replaceWithAlreadySentInvitesView,
             icon: Icons.mark_email_read_outlined,
           ),
           DrawerButtonWidget(
-            isSelected: false,
-            label: local.scheduledInvitations,
+            isSelected:
+                currentRouteService.currentRoute == Routes.scheduledInvitesView,
+            onTap: navigationService.replaceWithScheduledInvitesView,
             icon: Icons.schedule_sharp,
           ),
           DrawerButtonWidget(
@@ -53,11 +85,12 @@ class HomeDrawerWidget extends HookWidget {
             label: local.audience,
             icon: Icons.nature_people_outlined,
           ),
+          spacedDivider,
           DrawerButtonWidget(
             isSelected: false,
             label: local.logout,
             icon: Icons.logout_outlined,
-            onTap: () => logout?.call(),
+            onTap: () => LogoutServices.showDialog(),
           ),
         ],
       ),

@@ -13,7 +13,7 @@ import 'package:tarahib_mobile_app/core/presentation/ui/views/home/home_view.dar
 import 'package:tarahib_mobile_app/core/presentation/ui/views/home/models/show_contacts_model.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/views/invites_settings/invites_settings_view.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/views/login/login_view.dart';
-import 'package:tarahib_mobile_app/core/presentation/ui/views/scheduled_invites/invites_settings_view.dart';
+import 'package:tarahib_mobile_app/core/presentation/ui/views/scheduled_invites/scheduled_invites_view.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/views/send_invites/send_invites_view.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/views/startup/startup_view.dart';
 // @stacked-import

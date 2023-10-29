@@ -19,7 +19,7 @@ import 'package:tarahib_mobile_app/core/presentation/ui/views/invites_settings/i
     as _i9;
 import 'package:tarahib_mobile_app/core/presentation/ui/views/login/login_view.dart'
     as _i4;
-import 'package:tarahib_mobile_app/core/presentation/ui/views/scheduled_invites/invites_settings_view.dart'
+import 'package:tarahib_mobile_app/core/presentation/ui/views/scheduled_invites/scheduled_invites_view.dart'
     as _i7;
 import 'package:tarahib_mobile_app/core/presentation/ui/views/send_invites/send_invites_view.dart'
     as _i6;

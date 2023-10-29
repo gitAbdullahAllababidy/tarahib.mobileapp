@@ -4,7 +4,8 @@ import 'package:tarahib_mobile_app/core/application/services/light_services/curr
 import 'package:tarahib_mobile_app/core/application/services/storage_service/user_data_store.dart';
 import 'package:tarahib_mobile_app/generated/l10n.dart';
 
-NavigationService get navigationService => locator<NavigationService>();
-UserDataStore get userDataStore => locator<UserDataStore>();
+NavigationService navigationService = locator<NavigationService>();
+UserDataStore userDataStore = locator<UserDataStore>();
 CurrentRouteService currentRouteService = locator<CurrentRouteService>();
+DialogService dialogService = locator<DialogService>();
 S get local => S.current;

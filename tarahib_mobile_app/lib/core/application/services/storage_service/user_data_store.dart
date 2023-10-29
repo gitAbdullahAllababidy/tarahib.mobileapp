@@ -17,4 +17,14 @@ final class UserDataStore with DataStoreMixin<Map> {
     var userToken = getUser().getOrElse(() => LoginDataObject()).token;
     return userToken ?? "";
   }
+
+  String get getUserName {
+    var data = getUser().getOrElse(() => LoginDataObject()).user?.name;
+    return data ?? "";
+  }
+
+  String get getUserEmail {
+    var data = getUser().getOrElse(() => LoginDataObject()).user?.email;
+    return data ?? "";
+  }
 }
