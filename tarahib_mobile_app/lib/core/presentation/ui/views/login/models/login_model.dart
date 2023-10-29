@@ -13,7 +13,7 @@ import 'package:tarahib_mobile_app/generated/l10n.dart';
 final class LoginModel extends ModelsAbstract<LoginViewModel> {
   ///LoginUser
   loginUser(Tuple2<String, String> loginCreds) {
-    viewModel?.setBusy(true);
+    viewModel.setBusy(true);
     final authRepo = locator<AuthRepo>();
     appLoadingCallback(authRepo.loginUser(loginCreds),
             cancelToken: authRepo.cancelToken)
