@@ -41,7 +41,7 @@ class RootWidget extends StatelessWidget {
       child: SizedBox(
         child: ListView(
           padding: EdgeInsets.symmetric(horizontal: 25.0.w, vertical: 15.0.h),
-          children: [spacedDivider, const TableWidget()],
+          children: const [verticalSpaceMedium, TableWidget()],
         ),
       ),
     );
