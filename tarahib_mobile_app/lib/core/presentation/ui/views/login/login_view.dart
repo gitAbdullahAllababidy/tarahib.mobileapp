@@ -143,19 +143,23 @@ class AppTextFormFieldWidget extends StatelessWidget {
   final String? label;
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      controller: textEditingController,
-      validator: validator,
-      cursorColor: kcDarkGreyColor,
-      cursorRadius: const Radius.circular(10),
-      cursorWidth: 1,
-      decoration: InputDecoration(
-          labelText: label ?? "Label",
-          labelStyle: getAppThem(context).textTheme.bodyMedium,
-          border: OutlineInputBorder(
-              borderSide: BorderSide(color: kcVeryLightGrey.withOpacity(.4))),
-          focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: kcPrimaryColor))),
+    return SizedBox(
+      child: TextFormField(
+        controller: textEditingController,
+        validator: validator,
+        cursorColor: kcDarkGreyColor,
+        cursorRadius: const Radius.circular(10),
+        cursorWidth: 1,
+        decoration: InputDecoration(
+            contentPadding:
+                const EdgeInsets.symmetric(vertical: 14, horizontal: 10),
+            labelText: label ?? "Label",
+            labelStyle: getAppThem(context).textTheme.bodyMedium,
+            border: OutlineInputBorder(
+                borderSide: BorderSide(color: kcVeryLightGrey.withOpacity(.4))),
+            focusedBorder: const OutlineInputBorder(
+                borderSide: BorderSide(color: kcPrimaryColor))),
+      ),
     );
   }
 }
