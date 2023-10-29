@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:stacked_services/stacked_services.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/app_colors.dart';
 
 ThemeData setAppThem() => ThemeData(
@@ -20,7 +21,7 @@ ThemeData setAppThem() => ThemeData(
       labelSmall: GoogleFonts.cairo(fontSize: 8.sp),
     ));
 
-ThemeData getAppThem(BuildContext context) {
-  var appThem = Theme.of(context);
+ThemeData get getThem {
+  var appThem = Theme.of(StackedService.navigatorKey!.currentContext!);
   return appThem;
 }

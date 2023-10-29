@@ -1,7 +1,10 @@
 {
   "@@locale": "en",
+  "addNew": "  ",
+  "addToGroup": " ",
   "alreadySentInvitations": "Sent invitations",
   "audience": "Audience",
+  "companionsCount": "Companions count",
   "contacts": "Contacts",
   "email": "Email",
   "groups": "Groups",
@@ -12,10 +15,14 @@
   "logout": "Logout",
   "logoutAlertTitle": "Logout alert",
   "logoutMessage": "By you submotting logout, all your data will be erased",
+  "mobile": "Mobile",
+  "name": "name",
   "password": "Password",
+  "procedures": "Procedures ",
   "scheduledInvitations": "Scheduled invitations",
   "sendInvitations": "Send Invitations",
   "submit": "Submit",
   "success": "Success",
+  "surname": "Surname",
   "taraheeb": "Taraheeb"
 }

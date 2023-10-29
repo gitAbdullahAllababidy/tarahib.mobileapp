@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:stacked/stacked.dart';
+import 'package:tarahib_mobile_app/core/global/global_locators.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/app_colors.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/app_them.dart';
+import 'package:tarahib_mobile_app/core/presentation/ui/views/login/login_view.dart';
 import 'package:tarahib_mobile_app/generated/l10n.dart';
 
 import 'home_viewmodel.dart';
@@ -18,13 +21,32 @@ class HomeView extends HookWidget {
     return ViewModelBuilder<HomeViewModel>.nonReactive(
       disposeViewModel: false,
       viewModelBuilder: () => HomeViewModel(),
+      onViewModelReady: (viewModel) =>
+          {viewModel.showContactsModel.getAllContacts()},
       builder: (context, viewModel, child) => Scaffold(
         drawer: const HomeDrawerWidget(),
         appBar: AppBar(),
-        body: const SafeArea(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 25.0),
-            child: SizedBox(),
+        body: SafeArea(
+          child: SizedBox(
+            child: ListView(
+              padding:
+                  EdgeInsets.symmetric(horizontal: 25.0.w, vertical: 15.0.h),
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      local.contacts,
+                      style: getThem.textTheme.titleLarge
+                          ?.copyWith(color: kcPrimaryColorDark),
+                    ),
+                    AppButtonWidget(
+                      label: local.addNew,
+                    )
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -111,9 +133,7 @@ class DrawerButtonWidget extends HookWidget {
         child: ListTile(
           title: Text(
             label ?? S.current.contacts,
-            style: getAppThem(context)
-                .textTheme
-                .bodyLarge
+            style: getThem.textTheme.bodyLarge
                 ?.copyWith(color: isSelected ? kcWhiteColor : kcMediumGrey),
           ),
           leading: Icon(

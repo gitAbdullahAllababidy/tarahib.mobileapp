@@ -22,9 +22,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "addNew": MessageLookupByLibrary.simpleMessage("  "),
+        "addToGroup": MessageLookupByLibrary.simpleMessage(" "),
         "alreadySentInvitations":
             MessageLookupByLibrary.simpleMessage("Sent invitations"),
         "audience": MessageLookupByLibrary.simpleMessage("Audience"),
+        "companionsCount":
+            MessageLookupByLibrary.simpleMessage("Companions count"),
         "contacts": MessageLookupByLibrary.simpleMessage("Contacts"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "groups": MessageLookupByLibrary.simpleMessage("Groups"),
@@ -39,13 +43,17 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Logout alert"),
         "logoutMessage": MessageLookupByLibrary.simpleMessage(
             "By you submotting logout, all your data will be erased"),
+        "mobile": MessageLookupByLibrary.simpleMessage("Mobile"),
+        "name": MessageLookupByLibrary.simpleMessage("name"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "procedures": MessageLookupByLibrary.simpleMessage("Procedures "),
         "scheduledInvitations":
             MessageLookupByLibrary.simpleMessage("Scheduled invitations"),
         "sendInvitations":
             MessageLookupByLibrary.simpleMessage("Send Invitations"),
         "submit": MessageLookupByLibrary.simpleMessage("Submit"),
         "success": MessageLookupByLibrary.simpleMessage("Success"),
+        "surname": MessageLookupByLibrary.simpleMessage("Surname"),
         "taraheeb": MessageLookupByLibrary.simpleMessage("Taraheeb")
       };
 }

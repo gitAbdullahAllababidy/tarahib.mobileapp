@@ -1,7 +1,10 @@
 {
   "@@locale": "ar",
+  "addNew": "اضافة جديد",
+  "addToGroup": "اضافة لمجموعة",
   "alreadySentInvitations": "الدعوات المرسلة",
   "audience": "الحضور",
+  "companionsCount": "المرافقين",
   "contacts": "جهات الاتصال",
   "email": "البريد الالكتروني",
   "groups": "المجموعات",
@@ -12,11 +15,15 @@
   "logout": "تسجيل الخروج",
   "logoutAlertTitle": "تنبيه تسجيل خروج",
   "logoutMessage": "عملية تسجيل الخروج تؤدي الى حذف جميع البيانات الخاصة بك",
+  "mobile": "الجوال",
+  "name": "الاسم",
   "password": "كلمة المرور",
+  "procedures": "خيارات",
   "scheduledInvitations": "الدعوات المجدولة",
   "sendInvitations": "إرسال الدعوات",
   "submit": "تأكيد",
   "success": "تمت العملية بنجاح",
-  
+  "surname": "اللقب",
   "taraheeb": "تراحيب"
+  
 }

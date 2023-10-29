@@ -50,6 +50,26 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `  `
+  String get addNew {
+    return Intl.message(
+      '  ',
+      name: 'addNew',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` `
+  String get addToGroup {
+    return Intl.message(
+      ' ',
+      name: 'addToGroup',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Sent invitations`
   String get alreadySentInvitations {
     return Intl.message(
@@ -65,6 +85,16 @@ class S {
     return Intl.message(
       'Audience',
       name: 'audience',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Companions count`
+  String get companionsCount {
+    return Intl.message(
+      'Companions count',
+      name: 'companionsCount',
       desc: '',
       args: [],
     );
@@ -170,11 +200,41 @@ class S {
     );
   }
 
+  /// `Mobile`
+  String get mobile {
+    return Intl.message(
+      'Mobile',
+      name: 'mobile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `name`
+  String get name {
+    return Intl.message(
+      'name',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Password`
   String get password {
     return Intl.message(
       'Password',
       name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Procedures `
+  String get procedures {
+    return Intl.message(
+      'Procedures ',
+      name: 'procedures',
       desc: '',
       args: [],
     );
@@ -215,6 +275,16 @@ class S {
     return Intl.message(
       'Success',
       name: 'success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Surname`
+  String get surname {
+    return Intl.message(
+      'Surname',
+      name: 'surname',
       desc: '',
       args: [],
     );

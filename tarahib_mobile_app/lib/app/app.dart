@@ -3,8 +3,10 @@ import 'package:stacked_services/stacked_services.dart';
 import 'package:tarahib_mobile_app/core/application/services/network_services.dart';
 import 'package:tarahib_mobile_app/core/application/services/storage_service/user_data_store.dart';
 import 'package:tarahib_mobile_app/core/data/repositories/auth_repo.dart';
+import 'package:tarahib_mobile_app/core/data/repositories/contacts_repo.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/bottom_sheets/notice/notice_sheet.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/dialogs/info_alert/info_alert_dialog.dart';
+import 'package:tarahib_mobile_app/core/presentation/ui/views/groups/groups_view.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/views/home/home_view.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/views/login/login_view.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/views/startup/startup_view.dart';
@@ -15,6 +17,7 @@ import 'package:tarahib_mobile_app/core/presentation/ui/views/startup/startup_vi
     MaterialRoute(page: HomeView),
     MaterialRoute(page: StartupView),
     MaterialRoute(page: LoginView),
+    MaterialRoute(page: GroupsView),
 // @stacked-route
   ],
   dependencies: [
@@ -23,7 +26,8 @@ import 'package:tarahib_mobile_app/core/presentation/ui/views/startup/startup_vi
     LazySingleton(classType: NavigationService),
     LazySingleton(classType: UserDataStore),
     Factory(classType: NetworkService),
-    Factory(classType: AuthRepo)
+    Factory(classType: AuthRepo),
+    Factory(classType: ContactsRepo)
     // @stacked-service
   ],
   bottomsheets: [

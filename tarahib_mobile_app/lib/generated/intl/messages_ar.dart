@@ -22,9 +22,12 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "addNew": MessageLookupByLibrary.simpleMessage("اضافة جديد"),
+        "addToGroup": MessageLookupByLibrary.simpleMessage("اضافة لمجموعة"),
         "alreadySentInvitations":
             MessageLookupByLibrary.simpleMessage("الدعوات المرسلة"),
         "audience": MessageLookupByLibrary.simpleMessage("الحضور"),
+        "companionsCount": MessageLookupByLibrary.simpleMessage("المرافقين"),
         "contacts": MessageLookupByLibrary.simpleMessage("جهات الاتصال"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
         "groups": MessageLookupByLibrary.simpleMessage("المجموعات"),
@@ -40,13 +43,17 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تنبيه تسجيل خروج"),
         "logoutMessage": MessageLookupByLibrary.simpleMessage(
             "عملية تسجيل الخروج تؤدي الى حذف جميع البيانات الخاصة بك"),
+        "mobile": MessageLookupByLibrary.simpleMessage("الجوال"),
+        "name": MessageLookupByLibrary.simpleMessage("الاسم"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+        "procedures": MessageLookupByLibrary.simpleMessage("خيارات"),
         "scheduledInvitations":
             MessageLookupByLibrary.simpleMessage("الدعوات المجدولة"),
         "sendInvitations":
             MessageLookupByLibrary.simpleMessage("إرسال الدعوات"),
         "submit": MessageLookupByLibrary.simpleMessage("تأكيد"),
         "success": MessageLookupByLibrary.simpleMessage("تمت العملية بنجاح"),
+        "surname": MessageLookupByLibrary.simpleMessage("اللقب"),
         "taraheeb": MessageLookupByLibrary.simpleMessage("تراحيب")
       };
 }

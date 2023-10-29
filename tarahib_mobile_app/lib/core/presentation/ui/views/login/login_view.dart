@@ -59,14 +59,14 @@ class LoginView extends HookWidget {
                       children: [
                         Text(
                           S.current.taraheeb,
-                          style: getAppThem(context)
+                          style: getThem
                               .textTheme
                               .titleMedium
                               ?.copyWith(color: kcPrimaryColor),
                         ),
                         Text(
                           S.current.login_and_planing,
-                          style: getAppThem(context)
+                          style: getThem
                               .textTheme
                               .bodyMedium
                               ?.copyWith(color: kcDarkGreyColor),
@@ -154,7 +154,7 @@ class AppTextFormFieldWidget extends StatelessWidget {
             contentPadding:
                 const EdgeInsets.symmetric(vertical: 14, horizontal: 10),
             labelText: label ?? "Label",
-            labelStyle: getAppThem(context).textTheme.bodyMedium,
+            labelStyle: getThem.textTheme.bodyMedium,
             border: OutlineInputBorder(
                 borderSide: BorderSide(color: kcVeryLightGrey.withOpacity(.4))),
             focusedBorder: const OutlineInputBorder(

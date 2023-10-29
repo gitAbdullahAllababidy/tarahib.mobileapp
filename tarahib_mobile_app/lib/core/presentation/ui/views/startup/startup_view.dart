@@ -25,7 +25,7 @@ class StartupView extends StackedView<StartupViewModel> {
           children: [
             Text(
               S.current.taraheeb,
-              style: getAppThem(context)
+              style: getThem
                   .textTheme
                   .titleLarge
                   ?.copyWith(color: kcPrimaryColor, fontSize: 60.sp),

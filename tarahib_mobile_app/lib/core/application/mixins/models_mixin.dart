@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:stacked/stacked.dart';
 import 'package:tarahib_mobile_app/core/data/data_objects/response_data_object/response_data_object.dart';
 
-abstract class ModelsAbstract<ViewModel extends BaseViewModel> {
+ class ModelsAbstract<ViewModel extends BaseViewModel> {
   final ViewModel viewModel;
 
   ModelsAbstract(this.viewModel);
@@ -20,4 +20,6 @@ abstract class ModelsAbstract<ViewModel extends BaseViewModel> {
       BotToast.showText(text: error.data?.values.join(", ") ?? "");
     }
   }
+
+  
 }

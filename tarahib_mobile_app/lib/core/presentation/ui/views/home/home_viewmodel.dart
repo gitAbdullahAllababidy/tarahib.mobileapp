@@ -5,12 +5,16 @@ import 'package:tarahib_mobile_app/app/app.dialogs.dart';
 import 'package:tarahib_mobile_app/app/app.locator.dart';
 import 'package:tarahib_mobile_app/core/application/services/light_services/logout_service.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/app_strings.dart';
+import 'package:tarahib_mobile_app/core/presentation/ui/views/home/models/show_contacts_model.dart';
 import 'package:tarahib_mobile_app/generated/l10n.dart';
 
 class HomeViewModel extends BaseViewModel {
   final _dialogService = locator<DialogService>();
   final _bottomSheetService = locator<BottomSheetService>();
-
+  late ShowContactsModel showContactsModel;
+  HomeViewModel() {
+    showContactsModel = ShowContactsModel(this);
+  }
   String get counterLabel => 'Counter is: $_counter';
 
   int _counter = 0;

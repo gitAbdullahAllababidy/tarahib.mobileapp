@@ -12,4 +12,9 @@ final class UserDataStore with DataStoreMixin<Map> {
       return right(LoginDataObject.fromMap((r.first)));
     });
   }
+
+  String get getUserToken {
+    var userToken = getUser().getOrElse(() => LoginDataObject()).token;
+    return userToken ?? "";
+  }
 }
