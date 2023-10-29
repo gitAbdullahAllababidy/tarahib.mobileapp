@@ -43,7 +43,7 @@ final class ShowContactsModel extends ModelsAbstract<HomeViewModel> {
             ]));
   }
 
-  List<DataColumn> get dataColumns {
+  List<DataColumn> get getDataColumns {
     return [
       DataColumn(label: Text(local.procedures)),
       DataColumn(label: Text(local.name)),

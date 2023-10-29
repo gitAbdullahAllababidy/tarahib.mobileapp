@@ -6,9 +6,13 @@ import 'package:tarahib_mobile_app/core/data/repositories/auth_repo.dart';
 import 'package:tarahib_mobile_app/core/data/repositories/contacts_repo.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/bottom_sheets/notice/notice_sheet.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/dialogs/info_alert/info_alert_dialog.dart';
+import 'package:tarahib_mobile_app/core/presentation/ui/views/aleardy_sent_invites/already_sent_invites_view.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/views/groups/groups_view.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/views/home/home_view.dart';
+import 'package:tarahib_mobile_app/core/presentation/ui/views/invites_settings/invites_settings_view.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/views/login/login_view.dart';
+import 'package:tarahib_mobile_app/core/presentation/ui/views/scheduled_invites/invites_settings_view.dart';
+import 'package:tarahib_mobile_app/core/presentation/ui/views/send_invites/send_invites_view.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/views/startup/startup_view.dart';
 // @stacked-import
 
@@ -18,6 +22,10 @@ import 'package:tarahib_mobile_app/core/presentation/ui/views/startup/startup_vi
     MaterialRoute(page: StartupView),
     MaterialRoute(page: LoginView),
     MaterialRoute(page: GroupsView),
+    MaterialRoute(page: SendInvitesView),
+    MaterialRoute(page: ScheduledInvitesView),
+    MaterialRoute(page: AlreadySentInvitesView),
+    MaterialRoute(page: InvitesSettingsView),
 // @stacked-route
   ],
   dependencies: [
