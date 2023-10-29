@@ -17,22 +17,21 @@ final class ShowDataModel<ViewModel extends BaseViewModel>
   var dataList = <InvitationSettingsDataObject>[];
 
   getData() {
-    // if (dataList.isNotEmpty) {
-    //   return;
-    // }
     var appRepo = locator<AppRepo>();
-    appLoadingCallback(viewModel.runBusyFuture(
-      appRepo.getAllInvites().then((value) => value.fold(
-          (l) => showError(l),
-          (r) => {
-                if (r.data is List)
-                  {
-                    dataList = (r.data as List)
-                        .map((e) => InvitationSettingsDataObject.fromMap(e))
-                        .toList(),
-                  }
-              })),
-    ));
+    appLoadingCallback(
+        viewModel.runBusyFuture(
+          appRepo.getAllInvites().then((value) => value.fold(
+              (l) => showError(l),
+              (r) => {
+                    if (r.data is List)
+                      {
+                        dataList = (r.data as List)
+                            .map((e) => InvitationSettingsDataObject.fromMap(e))
+                            .toList(),
+                      }
+                  })),
+        ),
+        showLoading: dataList.isEmpty);
   }
 
   List<DataRow> get getDataRows {

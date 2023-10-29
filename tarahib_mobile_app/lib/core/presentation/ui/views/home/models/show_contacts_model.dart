@@ -13,22 +13,21 @@ final class ShowContactsModel extends ModelsAbstract<HomeViewModel> {
   var contactsList = <ContactsListObject>[];
 
   getAllContacts() {
-    if (contactsList.isNotEmpty) {
-      return;
-    }
     var contactRepo = locator<ContactsRepo>();
-    appLoadingCallback(viewModel.runBusyFuture(
-      contactRepo.getAllContacts().then((value) => value.fold(
-          (l) => showError(l),
-          (r) => {
-                if (r.data is List)
-                  {
-                    contactsList = (r.data as List)
-                        .map((e) => ContactsListObject.fromMap(e))
-                        .toList(),
-                  }
-              })),
-    ));
+    appLoadingCallback(
+        viewModel.runBusyFuture(
+          contactRepo.getAllContacts().then((value) => value.fold(
+              (l) => showError(l),
+              (r) => {
+                    if (r.data is List)
+                      {
+                        contactsList = (r.data as List)
+                            .map((e) => ContactsListObject.fromMap(e))
+                            .toList(),
+                      }
+                  })),
+        ),
+        showLoading: contactsList.isEmpty);
   }
 
   List<DataRow> get getDataRows {
