@@ -3,7 +3,5 @@ import 'package:tarahib_mobile_app/core/presentation/ui/views/login/models/login
 
 class LoginViewModel extends BaseViewModel {
   late LoginModel loginModel;
-  LoginViewModel() {
-    loginModel = LoginModel(this);
-  }
+  LoginViewModel();
 }

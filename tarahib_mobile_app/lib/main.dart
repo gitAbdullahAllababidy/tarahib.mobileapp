@@ -9,6 +9,7 @@ import 'package:tarahib_mobile_app/app/app.bottomsheets.dart';
 import 'package:tarahib_mobile_app/app/app.dialogs.dart';
 import 'package:tarahib_mobile_app/app/app.locator.dart';
 import 'package:tarahib_mobile_app/app/app.router.dart';
+import 'package:tarahib_mobile_app/core/application/services/light_services/current_route_service.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/app_them.dart';
 import 'package:tarahib_mobile_app/generated/l10n.dart';
 
@@ -55,6 +56,7 @@ class MainApp extends HookWidget {
             supportedLocales: S.delegate.supportedLocales,
             navigatorObservers: [
               StackedService.routeObserver,
+              locator<CurrentRouteService>()
             ],
             theme: setAppThem());
       },

@@ -19,10 +19,12 @@ class HomeDrawerWidget extends HookWidget {
       child: ListView(
         children: [
           DrawerButtonWidget(
-            isSelected: selectedRoute == Routes.homeView,
+            isSelected: currentRouteService.currentRoute == Routes.homeView,
+            onTap: navigationService.replaceWithHomeView,
           ),
           DrawerButtonWidget(
-            isSelected: false,
+            onTap: navigationService.replaceWithGroupsView,
+           isSelected: currentRouteService.currentRoute == Routes.groupsView,
             label: local.groups,
             icon: Icons.group_outlined,
           ),

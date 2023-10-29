@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:tarahib_mobile_app/app/app.bottomsheets.dart';
@@ -11,9 +13,10 @@ import 'package:tarahib_mobile_app/generated/l10n.dart';
 class HomeViewModel extends BaseViewModel {
   final _dialogService = locator<DialogService>();
   final _bottomSheetService = locator<BottomSheetService>();
-  late ShowContactsModel showContactsModel;
+  late final ShowContactsModel showContactsModel;
   HomeViewModel() {
-    showContactsModel = ShowContactsModel(this);
+    showContactsModel = locator<ShowContactsModel>();
+    showContactsModel.viewModel = this;
   }
   String get counterLabel => 'Counter is: $_counter';
 
@@ -45,5 +48,11 @@ class HomeViewModel extends BaseViewModel {
       title: ksHomeBottomSheetTitle,
       description: ksHomeBottomSheetDescription,
     );
+  }
+
+  @override
+  void dispose() {
+    log("DisposeViewMode", level: 1);
+    super.dispose();
   }
 }

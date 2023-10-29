@@ -1,12 +1,12 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:tarahib_mobile_app/core/data/data_objects/response_data_object/response_data_object.dart';
 
- class ModelsAbstract<ViewModel extends BaseViewModel> {
-  final ViewModel viewModel;
-
-  ModelsAbstract(this.viewModel);
+class ModelsAbstract<ViewModel extends BaseViewModel> {
+  ViewModel? viewModel;
+  @mustCallSuper
   showError(error) {
     if (error is DioException) {
       return switch (error.type) {
@@ -20,6 +20,4 @@ import 'package:tarahib_mobile_app/core/data/data_objects/response_data_object/r
       BotToast.showText(text: error.data?.values.join(", ") ?? "");
     }
   }
-
-  
 }

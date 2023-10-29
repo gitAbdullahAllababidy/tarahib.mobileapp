@@ -18,7 +18,7 @@ class HomeView extends HookWidget {
     BuildContext context,
   ) {
     return ViewModelBuilder<HomeViewModel>.nonReactive(
-      disposeViewModel: false,
+      disposeViewModel: true,
       viewModelBuilder: () => HomeViewModel(),
       onViewModelReady: (viewModel) =>
           {viewModel.showContactsModel.getAllContacts()},
@@ -73,6 +73,9 @@ class TableWidget extends StatelessWidget {
         ),
       ).redacted(
           context: context,
+          configuration: RedactedConfiguration(
+              autoFillTexts: true,
+              animationDuration: const Duration(milliseconds: 400)),
           redact: viewModel.busy(viewModel.showContactsModel.contactsList)),
     );
   }

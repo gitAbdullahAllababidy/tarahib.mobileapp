@@ -7,13 +7,13 @@ import 'package:tarahib_mobile_app/core/global/global_locators.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/views/home/home_viewmodel.dart';
 
 final class ShowContactsModel extends ModelsAbstract<HomeViewModel> {
-  ShowContactsModel(super.viewModel);
+  ShowContactsModel();
 
   var contactsList = <ContactsListObject>[];
 
   getAllContacts() {
     var contactRepo = locator<ContactsRepo>();
-    viewModel.runBusyFuture(
+    viewModel?.runBusyFuture(
         contactRepo.getAllContacts().then((value) => value.fold(
             (l) => showError(l),
             (r) => {
