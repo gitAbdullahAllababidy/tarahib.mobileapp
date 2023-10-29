@@ -13,7 +13,7 @@ final class AuthRepo with RepoMixin {
       "email": loginCreds.value1,
       "password": loginCreds.value2
     };
-    return await networkService.postRequest(AuthDataSrc().loginApi,
+    return await networkService.postRequest<Map>(AuthDataSrc().loginApi,
         data: userCreds, cancelToken: cancelToken);
   }
 }

@@ -25,7 +25,7 @@ final class NetworkService {
       );
   }
 
-  Future<AppResponseType<ResponseDataObject>> getRequest(
+  Future<AppResponseType<ResponseDataObject<T>>> getRequest<T>(
     String path, {
     Object? data,
     List<Interceptor>? interceptors,
@@ -34,7 +34,7 @@ final class NetworkService {
     CancelToken? cancelToken,
     ProgressCallback? onReceiveProgress,
   }) async {
-    ResponseDataObject? responseDataObject;
+    ResponseDataObject<T>? responseDataObject;
     try {
       if (interceptors is List<Interceptor>) {
         _dio.interceptors.addAll(interceptors);
@@ -46,19 +46,19 @@ final class NetworkService {
           cancelToken: cancelToken,
           onReceiveProgress: onReceiveProgress);
       final resData = res.data as Map<String, dynamic>;
-      responseDataObject = ResponseDataObject.fromMap(resData);
+      responseDataObject = ResponseDataObject<T>.fromMap(resData);
 
       return right(responseDataObject);
     } on Exception catch (e) {
       if (e is DioException) {
-        return _dioExceptionHandler(e);
+        return _dioExceptionHandler<T>(e);
       }
 
       return left(e);
     }
   }
 
-  Future<AppResponseType<ResponseDataObject>> postRequest(
+  Future<AppResponseType<ResponseDataObject<T>>> postRequest<T>(
     String path, {
     Object? data,
     Map<String, dynamic>? queryParameters,
@@ -68,11 +68,12 @@ final class NetworkService {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    ResponseDataObject? responseDataObject;
+    ResponseDataObject<T>? responseDataObject;
     try {
       if (interceptors is List<Interceptor>) {
         _dio.interceptors.addAll(interceptors);
       }
+
       final res = await _dio.post<Map>(path,
           data: data,
           queryParameters: queryParameters,
@@ -81,12 +82,12 @@ final class NetworkService {
           onSendProgress: onReceiveProgress,
           onReceiveProgress: onReceiveProgress);
       final resData = res.data as Map<String, dynamic>;
-      responseDataObject = ResponseDataObject.fromMap(resData);
+      responseDataObject = ResponseDataObject<T>.fromMap(resData);
 
       return right(responseDataObject);
     } on Exception catch (e) {
       if (e is DioException) {
-        return _dioExceptionHandler(e);
+        return _dioExceptionHandler<T>(e);
       }
 
       return left(e);
@@ -94,18 +95,19 @@ final class NetworkService {
   }
 
   ///Dio Exception handler
-  Either<dynamic, ResponseDataObject> _dioExceptionHandler(
+  Either<dynamic, ResponseDataObject<T>> _dioExceptionHandler<T>(
     DioException e,
   ) {
     return switch (e.type) {
-      DioExceptionType.badResponse => _responseDataObjectError(e),
+      DioExceptionType.badResponse => _responseDataObjectError<T>(e),
       _ => left(e)
     };
   }
 
-  AppResponseType<ResponseDataObject> _responseDataObjectError(DioException e) {
+  AppResponseType<ResponseDataObject<T>> _responseDataObjectError<T>(
+      DioException e) {
     final errorResponseDataObject =
-        ResponseDataObject.fromMap(e.response?.data ?? {});
+        ResponseDataObject<T>.fromMap(e.response?.data ?? {});
     return left(errorResponseDataObject);
   }
 }

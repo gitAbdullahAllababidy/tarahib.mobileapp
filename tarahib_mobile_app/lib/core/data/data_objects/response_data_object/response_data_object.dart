@@ -1,13 +1,11 @@
 // ignore_for_file: depend_on_referenced_packages
 
-import 'dart:convert';
-
 import 'package:collection/collection.dart';
 
-class ResponseDataObject {
+class ResponseDataObject<T> {
   bool? success;
   String? message;
-  Map<String, dynamic>? data;
+  T? data;
 
   ResponseDataObject({this.success, this.message, this.data});
 
@@ -15,18 +13,11 @@ class ResponseDataObject {
     return ResponseDataObject(
         success: data['success'] as bool?,
         message: data['message'] as String?,
-        data: data['data'] as Map<String, dynamic>);
+        data: data['data'] as T);
   }
 
   Map<String, dynamic> toMap() =>
       {'success': success, 'message': message, 'data': data};
-
-  factory ResponseDataObject.fromJson(String data) {
-    return ResponseDataObject.fromMap(
-        json.decode(data) as Map<String, dynamic>);
-  }
-
-  String toJson() => json.encode(toMap());
 
   @override
   bool operator ==(Object other) {
