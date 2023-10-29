@@ -11,14 +11,6 @@ class HomeViewModel extends BaseViewModel {
   HomeViewModel() {
     showContactsModel = locator<ShowContactsModel>()..viewModel = this;
   }
-  String get counterLabel => 'Counter is: $_counter';
-
-  int _counter = 0;
-
-  void incrementCounter() {
-    _counter++;
-    rebuildUi();
-  }
 
   void showBottomSheet() {
     _bottomSheetService.showCustomSheet(
