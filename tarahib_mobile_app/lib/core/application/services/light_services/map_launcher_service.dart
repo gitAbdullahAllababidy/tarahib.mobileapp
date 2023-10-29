@@ -13,6 +13,7 @@ final class MapLauncherService {
         mapType: MapType.google,
         coords: coords,
         title: title,
+        zoom: zoom,
         description: description,
       );
     }

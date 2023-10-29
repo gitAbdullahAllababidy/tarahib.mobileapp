@@ -56,6 +56,8 @@ final class ShowDataModel<ViewModel extends BaseViewModel>
               DataCell(IconButton(
                   onPressed: () {
                     MapLauncherService.run(
+                        zoom: 5,
+                        description: getDataObjectByIndex(index).code,
                         coords: Coords(
                             getDataObjectByIndex(index)
                                     .location
