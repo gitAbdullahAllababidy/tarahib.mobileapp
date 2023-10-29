@@ -6,10 +6,14 @@
   "audience": "Audience",
   "companionsCount": "Companions count",
   "contacts": "Contacts",
+  "details": " ",
   "email": "Email",
   "groups": "Groups",
   "internetConnectionMsg": "No internet connection",
+  "invitationName": " ",
+  "invitationType": " ",
   "invitationsSettings": "Invitations settings",
+  "location": " ",
   "login": "Login",
   "login_and_planing": "NA",
   "logout": "Logout",
@@ -20,9 +24,11 @@
   "password": "Password",
   "procedures": "Procedures ",
   "scheduledInvitations": "Scheduled invitations",
+  "secretNum": " ",
   "sendInvitations": "Send Invitations",
   "submit": "Submit",
   "success": "Success",
   "surname": "Surname",
-  "taraheeb": "Taraheeb"
+  "taraheeb": "Taraheeb",
+  "withBarcode": " "
 }

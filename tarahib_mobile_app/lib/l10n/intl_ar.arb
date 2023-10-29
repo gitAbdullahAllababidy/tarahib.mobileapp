@@ -6,10 +6,14 @@
   "audience": "الحضور",
   "companionsCount": "المرافقين",
   "contacts": "جهات الاتصال",
+  "details": "تفاصيل",
   "email": "البريد الالكتروني",
   "groups": "المجموعات",
   "internetConnectionMsg": "لا يوجد اتصال بالشبكة، عاود لاحقاً",
+  "invitationName": "اسم الدعوة",
+  "invitationType": "نوع الدعوة",
   "invitationsSettings": "إعدادات الدعوات",
+  "location": "الموقع",
   "login": "تسجيل الدخول",
   "login_and_planing": "سجل دخول وخطط للمناسبات الرائعة",
   "logout": "تسجيل الخروج",
@@ -20,10 +24,12 @@
   "password": "كلمة المرور",
   "procedures": "خيارات",
   "scheduledInvitations": "الدعوات المجدولة",
+  "secretNum": "الرقم السري",
   "sendInvitations": "إرسال الدعوات",
   "submit": "تأكيد",
   "success": "تمت العملية بنجاح",
   "surname": "اللقب",
-  "taraheeb": "تراحيب"
+  "taraheeb": "تراحيب",
+  "withBarcode": "مع باركود"
   
 }

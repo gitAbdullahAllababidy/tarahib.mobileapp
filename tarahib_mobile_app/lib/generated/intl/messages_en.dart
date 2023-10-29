@@ -30,12 +30,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "companionsCount":
             MessageLookupByLibrary.simpleMessage("Companions count"),
         "contacts": MessageLookupByLibrary.simpleMessage("Contacts"),
+        "details": MessageLookupByLibrary.simpleMessage(" "),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "groups": MessageLookupByLibrary.simpleMessage("Groups"),
         "internetConnectionMsg":
             MessageLookupByLibrary.simpleMessage("No internet connection"),
+        "invitationName": MessageLookupByLibrary.simpleMessage(" "),
+        "invitationType": MessageLookupByLibrary.simpleMessage(" "),
         "invitationsSettings":
             MessageLookupByLibrary.simpleMessage("Invitations settings"),
+        "location": MessageLookupByLibrary.simpleMessage(" "),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "login_and_planing": MessageLookupByLibrary.simpleMessage("NA"),
         "logout": MessageLookupByLibrary.simpleMessage("Logout"),
@@ -49,11 +53,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "procedures": MessageLookupByLibrary.simpleMessage("Procedures "),
         "scheduledInvitations":
             MessageLookupByLibrary.simpleMessage("Scheduled invitations"),
+        "secretNum": MessageLookupByLibrary.simpleMessage(" "),
         "sendInvitations":
             MessageLookupByLibrary.simpleMessage("Send Invitations"),
         "submit": MessageLookupByLibrary.simpleMessage("Submit"),
         "success": MessageLookupByLibrary.simpleMessage("Success"),
         "surname": MessageLookupByLibrary.simpleMessage("Surname"),
-        "taraheeb": MessageLookupByLibrary.simpleMessage("Taraheeb")
+        "taraheeb": MessageLookupByLibrary.simpleMessage("Taraheeb"),
+        "withBarcode": MessageLookupByLibrary.simpleMessage(" ")
       };
 }

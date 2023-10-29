@@ -67,23 +67,27 @@ class HomeDrawerWidget extends HookWidget {
                 currentRouteService.currentRoute == Routes.sendInvitesView,
             onTap: navigationService.replaceWithSendInvitesView,
             icon: Icons.send_time_extension_outlined,
+            label: local.sendInvitations,
           ),
           DrawerButtonWidget(
             isSelected: currentRouteService.currentRoute ==
                 Routes.alreadySentInvitesView,
             onTap: navigationService.replaceWithAlreadySentInvitesView,
             icon: Icons.mark_email_read_outlined,
+             label: local.alreadySentInvitations,
           ),
           DrawerButtonWidget(
             isSelected:
                 currentRouteService.currentRoute == Routes.scheduledInvitesView,
             onTap: navigationService.replaceWithScheduledInvitesView,
             icon: Icons.schedule_sharp,
+              label: local.scheduledInvitations,
           ),
           DrawerButtonWidget(
             isSelected: false,
             label: local.audience,
             icon: Icons.nature_people_outlined,
+            
           ),
           spacedDivider,
           DrawerButtonWidget(

@@ -110,6 +110,16 @@ class S {
     );
   }
 
+  /// ` `
+  String get details {
+    return Intl.message(
+      ' ',
+      name: 'details',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Email`
   String get email {
     return Intl.message(
@@ -140,11 +150,41 @@ class S {
     );
   }
 
+  /// ` `
+  String get invitationName {
+    return Intl.message(
+      ' ',
+      name: 'invitationName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` `
+  String get invitationType {
+    return Intl.message(
+      ' ',
+      name: 'invitationType',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Invitations settings`
   String get invitationsSettings {
     return Intl.message(
       'Invitations settings',
       name: 'invitationsSettings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` `
+  String get location {
+    return Intl.message(
+      ' ',
+      name: 'location',
       desc: '',
       args: [],
     );
@@ -250,6 +290,16 @@ class S {
     );
   }
 
+  /// ` `
+  String get secretNum {
+    return Intl.message(
+      ' ',
+      name: 'secretNum',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Send Invitations`
   String get sendInvitations {
     return Intl.message(
@@ -295,6 +345,16 @@ class S {
     return Intl.message(
       'Taraheeb',
       name: 'taraheeb',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` `
+  String get withBarcode {
+    return Intl.message(
+      ' ',
+      name: 'withBarcode',
       desc: '',
       args: [],
     );

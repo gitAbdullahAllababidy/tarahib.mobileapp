@@ -3,14 +3,14 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 
 class Datum extends Equatable {
-	final int? lat;
-	final int? lang;
+	final num? lat;
+	final num? lang;
 
 	const Datum({this.lat, this.lang});
 
 	factory Datum.fromMap(Map<String, dynamic> data) => Datum(
-				lat: data['lat'] as int?,
-				lang: data['lang'] as int?,
+				lat: data['lat'] as num?,
+				lang: data['lang'] as num?,
 			);
 
 	Map<String, dynamic> toMap() => {

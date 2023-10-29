@@ -1,8 +1,10 @@
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
+import 'package:tarahib_mobile_app/app/app.router.dart';
 import 'package:tarahib_mobile_app/core/application/services/light_services/current_route_service.dart';
 import 'package:tarahib_mobile_app/core/application/services/network_services.dart';
 import 'package:tarahib_mobile_app/core/application/services/storage_service/user_data_store.dart';
+import 'package:tarahib_mobile_app/core/data/repositories/app_repo.dart';
 import 'package:tarahib_mobile_app/core/data/repositories/auth_repo.dart';
 import 'package:tarahib_mobile_app/core/data/repositories/contacts_repo.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/bottom_sheets/notice/notice_sheet.dart';
@@ -11,7 +13,9 @@ import 'package:tarahib_mobile_app/core/presentation/ui/views/aleardy_sent_invit
 import 'package:tarahib_mobile_app/core/presentation/ui/views/groups/groups_view.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/views/home/home_view.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/views/home/models/show_contacts_model.dart';
+import 'package:tarahib_mobile_app/core/presentation/ui/views/invites_settings/invitation_settings_viewmodel.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/views/invites_settings/invites_settings_view.dart';
+import 'package:tarahib_mobile_app/core/presentation/ui/views/invites_settings/models/show_data_model.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/views/login/login_view.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/views/scheduled_invites/scheduled_invites_view.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/views/send_invites/send_invites_view.dart';
@@ -37,9 +41,12 @@ import 'package:tarahib_mobile_app/core/presentation/ui/views/startup/startup_vi
     LazySingleton(classType: UserDataStore),
     LazySingleton(classType: CurrentRouteService),
     LazySingleton(classType: ShowContactsModel),
+    LazySingleton(
+        classType: ShowDataModel<InvitationSettingsViewModel>, instanceName: Routes.invitesSettingsView),
     Factory(classType: NetworkService),
     Factory(classType: AuthRepo),
-    Factory(classType: ContactsRepo)
+    Factory(classType: ContactsRepo),
+    Factory(classType: AppRepo)
     // @stacked-service
   ],
   bottomsheets: [

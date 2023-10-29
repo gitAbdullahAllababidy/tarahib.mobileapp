@@ -29,12 +29,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "audience": MessageLookupByLibrary.simpleMessage("الحضور"),
         "companionsCount": MessageLookupByLibrary.simpleMessage("المرافقين"),
         "contacts": MessageLookupByLibrary.simpleMessage("جهات الاتصال"),
+        "details": MessageLookupByLibrary.simpleMessage("تفاصيل"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
         "groups": MessageLookupByLibrary.simpleMessage("المجموعات"),
         "internetConnectionMsg": MessageLookupByLibrary.simpleMessage(
             "لا يوجد اتصال بالشبكة، عاود لاحقاً"),
+        "invitationName": MessageLookupByLibrary.simpleMessage("اسم الدعوة"),
+        "invitationType": MessageLookupByLibrary.simpleMessage("نوع الدعوة"),
         "invitationsSettings":
             MessageLookupByLibrary.simpleMessage("إعدادات الدعوات"),
+        "location": MessageLookupByLibrary.simpleMessage("الموقع"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "login_and_planing": MessageLookupByLibrary.simpleMessage(
             "سجل دخول وخطط للمناسبات الرائعة"),
@@ -49,11 +53,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "procedures": MessageLookupByLibrary.simpleMessage("خيارات"),
         "scheduledInvitations":
             MessageLookupByLibrary.simpleMessage("الدعوات المجدولة"),
+        "secretNum": MessageLookupByLibrary.simpleMessage("الرقم السري"),
         "sendInvitations":
             MessageLookupByLibrary.simpleMessage("إرسال الدعوات"),
         "submit": MessageLookupByLibrary.simpleMessage("تأكيد"),
         "success": MessageLookupByLibrary.simpleMessage("تمت العملية بنجاح"),
         "surname": MessageLookupByLibrary.simpleMessage("اللقب"),
-        "taraheeb": MessageLookupByLibrary.simpleMessage("تراحيب")
+        "taraheeb": MessageLookupByLibrary.simpleMessage("تراحيب"),
+        "withBarcode": MessageLookupByLibrary.simpleMessage("مع باركود")
       };
 }

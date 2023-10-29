@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stacked/stacked.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/app_colors.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/app_them.dart';
-import 'package:tarahib_mobile_app/core/presentation/ui/common/ui_helpers.dart';
+import 'package:tarahib_mobile_app/core/presentation/ui/common/loading_helpers.dart';
 import 'package:tarahib_mobile_app/generated/l10n.dart';
 
 import 'startup_viewmodel.dart';
@@ -25,26 +25,10 @@ class StartupView extends StackedView<StartupViewModel> {
           children: [
             Text(
               S.current.taraheeb,
-              style: getThem
-                  .textTheme
-                  .titleLarge
+              style: getThem.textTheme.titleLarge
                   ?.copyWith(color: kcPrimaryColor, fontSize: 60.sp),
             ),
-            const Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text('Loading ...', style: TextStyle(fontSize: 16)),
-                horizontalSpaceSmall,
-                SizedBox(
-                  width: 16,
-                  height: 16,
-                  child: CircularProgressIndicator(
-                    color: Colors.black,
-                    strokeWidth: 6,
-                  ),
-                ),
-              ],
-            ),
+            appLoaderWidget()
           ],
         ),
       ),
