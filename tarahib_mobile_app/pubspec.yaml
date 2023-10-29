@@ -35,6 +35,7 @@ dependencies:
   flutter_easyloading: ^3.0.5
   flutter_mobx: ^2.1.1
   mobx: ^2.2.1
+  equatable: ^2.0.5
   
 
 dev_dependencies:

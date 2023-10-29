@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -18,10 +19,10 @@ class HomeView extends HookWidget {
     BuildContext context,
   ) {
     return ViewModelBuilder<HomeViewModel>.nonReactive(
-      disposeViewModel: true,
       viewModelBuilder: () => HomeViewModel(),
-      onViewModelReady: (viewModel) =>
-          {viewModel.showContactsModel.getAllContacts()},
+      onViewModelReady: (viewModel) => {
+        viewModel.showContactsModel.getAllContacts(),
+      },
       builder: (context, viewModel, child) =>
           const FloatingActionWithDrawerAndAppbarAppHomeView(
         body: RootWidget(),

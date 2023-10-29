@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:tarahib_mobile_app/app/app.bottomsheets.dart';
@@ -50,9 +48,4 @@ class HomeViewModel extends BaseViewModel {
     );
   }
 
-  @override
-  void dispose() {
-    log("DisposeViewMode", level: 1);
-    super.dispose();
-  }
 }
