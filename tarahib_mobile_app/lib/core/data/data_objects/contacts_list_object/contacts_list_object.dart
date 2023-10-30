@@ -15,7 +15,7 @@ class ContactsListObject {
   int? companionCount;
   DateTime? createdAt;
   DateTime? updatedAt;
-
+String get fullName => "$firstName $lastName";
   ContactsListObject({
     this.id,
     this.userId,

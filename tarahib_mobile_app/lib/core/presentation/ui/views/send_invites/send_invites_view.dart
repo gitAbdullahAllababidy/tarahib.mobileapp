@@ -6,6 +6,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:stacked/stacked.dart';
+import 'package:tarahib_mobile_app/core/application/extentions/light_extentions.dart';
 import 'package:tarahib_mobile_app/core/data/data_objects/contact_send_invitation_data_object.dart';
 import 'package:tarahib_mobile_app/core/data/data_objects/contacts_list_object/contacts_list_object.dart';
 import 'package:tarahib_mobile_app/core/data/data_objects/invitation_settings_data_object/invitation_settings_data_object.dart';
@@ -160,7 +161,30 @@ class SendInvitesViewRoteWidget extends HookWidget {
                         child: Text("${e.firstName} ${e.lastName}"),
                       ))
                   .toList(),
-              onChanged: (s) {}),
+              onChanged: (s) {
+                if (s != null) {
+                  viewModel.updateSelectedContacts(s);
+                }
+              }),
+          Wrap(
+            runAlignment: WrapAlignment.start,
+            direction: Axis.horizontal,
+            children: [
+              ...List.generate(
+                  viewModel.selectedContactDataObject.length,
+                  (index) => Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 4),
+                        child: Chip(
+                            onDeleted: () {
+                              viewModel.selectedContactDataObject
+                                  .removeAt(index);
+                              return viewModel.rebuildUi();
+                            },
+                            label: Text(viewModel
+                                .selectedContactDataObject[index].fullName)),
+                      ))
+            ],
+          ),
         ],
         if (viewModel.selectedSendType == InvitesTypesEnum.newInvite) ...[
           Row(
@@ -293,6 +317,10 @@ class SendInvitesViewModel extends BaseViewModel {
   }
 
   var selectedContactDataObject = <ContactsListObject>[];
+  updateSelectedContacts(ContactsListObject object) {
+    selectedContactDataObject.putIfAbsentAndRemoveIfExist(object);
+    return rebuildUi();
+  }
 
   var newInviteDataObject = SendInviteDataObject();
 
