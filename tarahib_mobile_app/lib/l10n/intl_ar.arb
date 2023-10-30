@@ -17,7 +17,6 @@
   "invitationsSettings": "إعدادات الدعوات",
   "location": "الموقع",
   "login": "تسجيل الدخول",
-  
   "login_and_planing": "سجل دخول وخطط للمناسبات الرائعة",
   "logout": "تسجيل الخروج",
   "logoutAlertTitle": "تنبيه تسجيل خروج",
@@ -34,7 +33,9 @@
   "sendCount": "تعداد مرات الارسال",
   "sendInvitations": "إرسال الدعوات",
   "sendReminder": "ارسال تذكير",
+  "sentDate": "تاريخ الارسال",
   "show": "عرض",
+  "snetDate": "تاريخ الارسال",
   "status": "الحالة",
   "submit": "تأكيد",
   "success": "تمت العملية بنجاح",

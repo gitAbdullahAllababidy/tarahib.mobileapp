@@ -380,11 +380,31 @@ class S {
     );
   }
 
+  /// `  `
+  String get sentDate {
+    return Intl.message(
+      '  ',
+      name: 'sentDate',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Show`
   String get show {
     return Intl.message(
       'Show',
       name: 'show',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sent date`
+  String get snetDate {
+    return Intl.message(
+      'Sent date',
+      name: 'snetDate',
       desc: '',
       args: [],
     );

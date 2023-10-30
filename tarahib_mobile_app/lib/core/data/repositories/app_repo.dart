@@ -15,4 +15,8 @@ final class AppRepo with RepoMixin {
     return await networkService.getRequest(AppDataSrc().getAllSentInvitesApi,
         authorized: true, cancelToken: cancelToken, interceptors: []);
   }
+  Future<AppResponseType<ResponseDataObject>> getAllScheduledInvites() async {
+    return await networkService.getRequest(AppDataSrc().getAllScheduledInvitesApi,
+        authorized: true, cancelToken: cancelToken, interceptors: []);
+  }
 }

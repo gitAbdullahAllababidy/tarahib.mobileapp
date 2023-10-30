@@ -21,6 +21,7 @@ import '../core/data/repositories/contacts_repo.dart';
 import '../core/presentation/ui/views/aleardy_sent_invites/already_sent_invites_view.dart';
 import '../core/presentation/ui/views/home/models/show_contacts_model.dart';
 import '../core/presentation/ui/views/invites_settings/models/show_data_model.dart';
+import '../core/presentation/ui/views/scheduled_invites/scheduled_invites_view.dart';
 
 final locator = StackedLocator.instance;
 
@@ -43,6 +44,8 @@ Future<void> setupLocator({
       () => ShowDataModel<InvitationSettingsViewModel>());
   locator.registerLazySingleton(() =>
       ShowDataModelForAlreadySentInvites<AlreadySentInvitationsViewModel>());
+  locator.registerLazySingleton(
+      () => ShowDataModelForScheduledInvites<ScheduledInvitationsViewModel>());
   locator.registerFactory(() => NetworkService());
   locator.registerFactory(() => AuthRepo());
   locator.registerFactory(() => ContactsRepo());

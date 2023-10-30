@@ -49,6 +49,10 @@ import 'package:tarahib_mobile_app/core/presentation/ui/views/startup/startup_vi
       classType:
           ShowDataModelForAlreadySentInvites<AlreadySentInvitationsViewModel>,
     ),
+    LazySingleton(
+      classType:
+          ShowDataModelForScheduledInvites<ScheduledInvitationsViewModel>,
+    ),
     Factory(classType: NetworkService),
     Factory(classType: AuthRepo),
     Factory(classType: ContactsRepo),

@@ -64,7 +64,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "sendInvitations":
             MessageLookupByLibrary.simpleMessage("إرسال الدعوات"),
         "sendReminder": MessageLookupByLibrary.simpleMessage("ارسال تذكير"),
+        "sentDate": MessageLookupByLibrary.simpleMessage("تاريخ الارسال"),
         "show": MessageLookupByLibrary.simpleMessage("عرض"),
+        "snetDate": MessageLookupByLibrary.simpleMessage("تاريخ الارسال"),
         "status": MessageLookupByLibrary.simpleMessage("الحالة"),
         "submit": MessageLookupByLibrary.simpleMessage("تأكيد"),
         "success": MessageLookupByLibrary.simpleMessage("تمت العملية بنجاح"),
