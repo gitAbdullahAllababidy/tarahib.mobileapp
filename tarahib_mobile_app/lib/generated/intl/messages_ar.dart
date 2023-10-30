@@ -59,9 +59,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "procedures": MessageLookupByLibrary.simpleMessage("خيارات"),
         "qrCode": MessageLookupByLibrary.simpleMessage("QR"),
         "rejectSatus": MessageLookupByLibrary.simpleMessage("مرفوض"),
+        "saveAsNewContact":
+            MessageLookupByLibrary.simpleMessage("حفظ كجهة اتصال جديدة"),
         "scheduled": MessageLookupByLibrary.simpleMessage("جدولة"),
         "scheduledInvitations":
             MessageLookupByLibrary.simpleMessage("الدعوات المجدولة"),
+        "search": MessageLookupByLibrary.simpleMessage("ابحث"),
         "secretNum": MessageLookupByLibrary.simpleMessage("الرقم السري"),
         "sendCount": MessageLookupByLibrary.simpleMessage("تعداد مرات الارسال"),
         "sendInvitations":

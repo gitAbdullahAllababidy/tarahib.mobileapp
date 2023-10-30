@@ -15,7 +15,23 @@ class RootWidget extends StatelessWidget {
         child: ListView(
           physics: const BouncingScrollPhysics(),
           padding: EdgeInsets.symmetric(horizontal: 25.0.w, vertical: 15.0.h),
-          children: [verticalSpaceMedium, ...chields, verticalSpaceMassive],
+          children: [
+            verticalSpaceMedium,
+            // Row(
+            //   children: [
+            //     Flexible(
+            //       flex: 3,
+            //       child: AppTextFormFieldWidget(
+            //         label: local.search,
+            //         withBorders: false,
+            //       ),
+            //     ),
+            //   ],
+            // ),
+            verticalSpaceMedium,
+            ...chields,
+            verticalSpaceMassive
+          ],
         ),
       ),
     );

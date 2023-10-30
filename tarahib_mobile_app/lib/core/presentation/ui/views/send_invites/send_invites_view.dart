@@ -1,6 +1,9 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:intl/intl.dart';
 import 'package:stacked/stacked.dart';
 import 'package:tarahib_mobile_app/core/global/global_locators.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/forms_helpers.dart';
@@ -28,7 +31,9 @@ class SendInvitesView extends HookWidget {
 
     final emailController = useTextEditingController();
     final mobileController = useTextEditingController();
-    final companioCountController = useTextEditingController();
+    final companionCountController = useTextEditingController();
+    final dateTimeController = useTextEditingController();
+    final surnameController = useTextEditingController();
 
     return ViewModelBuilder<SendInvitesViewModel>.reactive(
         viewModelBuilder: () => SendInvitesViewModel(),
@@ -48,6 +53,10 @@ class SendInvitesView extends HookWidget {
                           Flexible(
                             child: AppTextFormFieldWidget(
                               label: local.invitationName,
+                              textEditingController: inviteNameController,
+                              validator: ValidationBuilderHelper
+                                  .nameValidationBuilder
+                                  .build(),
                             ),
                           ),
                           horizontalSpaceMedium,
@@ -80,6 +89,41 @@ class SendInvitesView extends HookWidget {
                         ],
                       ),
                     ),
+                    if (viewModel.scheduled) ...[
+                      verticalSpaceMedium,
+                      Row(
+                        children: [
+                          Text(local.dateAndTime),
+                        ],
+                      ),
+                      spacedDivider3,
+                      verticalSpaceSmall,
+                      AppTextFormFieldWidget(
+                        textEditingController: dateTimeController,
+                        onTap: () async {
+                          var selectedDate = DateTime.now().toLocal();
+                          var selectedTime = TimeOfDay.now();
+                          showDatePicker(
+                            context: context,
+                            initialDate: viewModel.selectedDateTime,
+                            firstDate: viewModel.selectedDateTime,
+                            lastDate: DateTime(2030),
+                          ).then((value) async {
+                            selectedDate = value ?? DateTime.now().toLocal();
+                            selectedTime = await showTimePicker(
+                                    context: context,
+                                    initialTime: TimeOfDay.now()) ??
+                                TimeOfDay.now();
+
+                            var parsedSelectedDate =
+                                DateFormat.yMMMEd().format(selectedDate);
+                            dateTimeController.text =
+                                "$parsedSelectedDate -  ${selectedTime.format(context)}";
+                          });
+                        },
+                        label: local.dateAndTime,
+                      )
+                    ],
                     verticalSpaceMedium,
                     Row(
                       children: [
@@ -94,6 +138,7 @@ class SendInvitesView extends HookWidget {
                           flex: 2,
                           child: AppTextFormFieldWidget(
                             label: local.name,
+                            textEditingController: firstNameController,
                             validator: ValidationBuilderHelper
                                 .nameValidationBuilder
                                 .build(),
@@ -103,6 +148,7 @@ class SendInvitesView extends HookWidget {
                         Flexible(
                           child: AppTextFormFieldWidget(
                             label: local.companionsCount,
+                            textEditingController: companionCountController,
                             validator: ValidationBuilderHelper
                                 .numberValidationBuilder
                                 .build(),
@@ -123,6 +169,7 @@ class SendInvitesView extends HookWidget {
                           flex: 2,
                           child: AppTextFormFieldWidget(
                             label: local.surname,
+                            textEditingController: surnameController,
                             validator: ValidationBuilderHelper
                                 .nameValidationBuilder
                                 .build(),
@@ -133,6 +180,7 @@ class SendInvitesView extends HookWidget {
                           flex: 3,
                           child: AppTextFormFieldWidget(
                             label: local.mobile,
+                            textEditingController: mobileController,
                             validator: ValidationBuilderHelper
                                 .numberValidationBuilder
                                 .build(),
@@ -149,8 +197,20 @@ class SendInvitesView extends HookWidget {
                     verticalSpaceMedium,
                     AppTextFormFieldWidget(
                       label: local.email,
+                      textEditingController: emailController,
                       validator: ValidationBuilderHelper.emailValidationBuilder
                           .build(),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Switch(
+                            value: viewModel.saveAsNewContact,
+                            onChanged: (v) {
+                              viewModel.saveAsNewContact = v;
+                            }),
+                        Text(local.saveAsNewContact)
+                      ],
                     ),
                     verticalSpaceMedium,
                     FractionallySizedBox(

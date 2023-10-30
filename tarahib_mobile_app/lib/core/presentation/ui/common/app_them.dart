@@ -13,11 +13,15 @@ ThemeData setAppThem() => ThemeData(
       };
     }), trackColor: MaterialStateProperty.resolveWith<Color?>((states) {
       return switch (states) {
-        _ when states.contains(MaterialState.selected) => kcPrimaryColor.withOpacity(.3),
+        _ when states.contains(MaterialState.selected) =>
+          kcPrimaryColor.withOpacity(.3),
         _ => null,
       };
     })),
+    datePickerTheme:
+        const DatePickerThemeData(headerBackgroundColor: kcPrimaryColor),
     appBarTheme: const AppBarTheme(color: kcPrimaryColor),
+    
     textTheme: TextTheme(
       titleLarge: GoogleFonts.cairo(fontSize: 26, fontWeight: FontWeight.bold),
       titleMedium: GoogleFonts.cairo(fontSize: 20),

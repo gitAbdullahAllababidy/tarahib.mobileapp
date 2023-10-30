@@ -13,9 +13,7 @@ class InvitesSettingsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<InvitationSettingsViewModel>.nonReactive(
-      onViewModelReady: (viewModel) => {
-        viewModel.showDataModel.getData()
-      } ,
+        onViewModelReady: (viewModel) => {viewModel.showDataModel.getData()},
         viewModelBuilder: () => InvitationSettingsViewModel(),
         builder: (context, viewModel, _) {
           return FloatingActionWithDrawerAndAppbarAppHomeView(
@@ -32,7 +30,6 @@ class _TableWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final viewModel = Provider.of<InvitationSettingsViewModel>(context);
     return SingleChildScrollView(
-      
         scrollDirection: Axis.horizontal,
         child: SizedBox(
           child: DataTable(
@@ -50,5 +47,3 @@ class _TableWidget extends StatelessWidget {
         ));
   }
 }
-
-

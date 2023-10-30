@@ -40,7 +40,7 @@ final class ShowDataModel<ViewModel extends BaseViewModel>
         (index) => DataRow(cells: [
               DataCell(IconButton(
                   onPressed: () {},
-                  icon: const Icon(Icons.miscellaneous_services_sharp))),
+                  icon: const Icon(Icons.more_vert))),
               DataCell(Text("${getDataObjectByIndex(index).invitationName}")),
               DataCell(Text("${getDataObjectByIndex(index).code}")),
               DataCell(Text("${getDataObjectByIndex(index).invitationType}")),

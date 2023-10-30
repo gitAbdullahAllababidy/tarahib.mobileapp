@@ -350,6 +350,16 @@ class S {
     );
   }
 
+  /// `  `
+  String get saveAsNewContact {
+    return Intl.message(
+      '  ',
+      name: 'saveAsNewContact',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Use schedule`
   String get scheduled {
     return Intl.message(
@@ -365,6 +375,16 @@ class S {
     return Intl.message(
       'Scheduled invitations',
       name: 'scheduledInvitations',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search`
+  String get search {
+    return Intl.message(
+      'Search',
+      name: 'search',
       desc: '',
       args: [],
     );

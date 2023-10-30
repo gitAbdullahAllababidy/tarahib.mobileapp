@@ -147,34 +147,50 @@ class AppTextFormFieldWidget extends StatelessWidget {
     this.label,
     this.textInputType,
     this.formatters,
+    this.onTap,
+    this.withBorders = true,
   });
   final TextEditingController? textEditingController;
   final String? Function(String?)? validator;
   final String? label;
   final TextInputType? textInputType;
   final List<TextInputFormatter>? formatters;
+  final VoidCallback? onTap;
+  final bool withBorders;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      child: TextFormField(
-        controller: textEditingController,
-        validator: validator,
-        cursorColor: kcDarkGreyColor,
-        cursorRadius: const Radius.circular(10),
-        cursorWidth: 1,
-        keyboardType: textInputType,
-        inputFormatters: formatters,
-        decoration: InputDecoration(
-            contentPadding:
-                const EdgeInsets.symmetric(vertical: 14, horizontal: 10),
-            labelText: label ?? "Label",
-            labelStyle: getThem.textTheme.bodyMedium,
-            border: const OutlineInputBorder(
-                borderSide: BorderSide(color: kcWhiteColor)),
-            enabledBorder: const OutlineInputBorder(
-                borderSide: BorderSide(color: kcVeryLightGrey)),
-            focusedBorder: const OutlineInputBorder(
-                borderSide: BorderSide(color: kcPrimaryColor))),
+      child: InkWell(
+        onTap: onTap,
+        child: TextFormField(
+          enabled: onTap == null,
+          controller: textEditingController,
+          validator: validator,
+          cursorColor: kcDarkGreyColor,
+          cursorRadius: const Radius.circular(10),
+          cursorWidth: 1,
+          keyboardType: textInputType,
+          inputFormatters: formatters,
+          decoration: withBorders
+              ? InputDecoration(
+                  contentPadding:
+                      const EdgeInsets.symmetric(vertical: 14, horizontal: 10),
+                  labelText: label ?? "Label" "....",
+                  labelStyle: getThem.textTheme.bodyMedium,
+                  border: const OutlineInputBorder(
+                      borderSide: BorderSide(color: kcWhiteColor)),
+                  enabledBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: kcVeryLightGrey)),
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: kcPrimaryColor)))
+              : InputDecoration(
+                  labelText: label ?? "Label" "....",
+                  focusedBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: kcPrimaryColor)),
+                  enabledBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: kcVeryLightGrey)),
+                ),
+        ),
       ),
     );
   }

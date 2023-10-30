@@ -1,5 +1,6 @@
 {
   "@@locale": "ar",
+  
   "accpetedStaus": "مقبول",
   "addNew": "اضافة جديد",
   "addToGroup": "اضافة لمجموعة",
@@ -8,7 +9,6 @@
   "companionsCount": "المرافقين",
   "contacts": "جهات الاتصال",
   "dateAndTime": "التاريخ والوقت",
-  
   "details": "تفاصيل",
   "email": "البريد الالكتروني",
   "empty": "فارغ",
@@ -31,8 +31,10 @@
   "procedures": "خيارات",
   "qrCode": "QR",
   "rejectSatus": "مرفوض",
+  "saveAsNewContact": "حفظ كجهة اتصال جديدة",
   "scheduled": "جدولة",
   "scheduledInvitations": "الدعوات المجدولة",
+  "search": "ابحث",
   "secretNum": "الرقم السري",
   "sendCount": "تعداد مرات الارسال",
   "sendInvitations": "إرسال الدعوات",
