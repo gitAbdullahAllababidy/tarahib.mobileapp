@@ -59,8 +59,7 @@ class ScheduledInvitationsViewModel extends BaseViewModel {
       showDataModel;
   ScheduledInvitationsViewModel() {
     showDataModel = locator<
-        ShowDataModelForScheduledInvites<ScheduledInvitationsViewModel>>()
-      ..viewModel = this;
+        ShowDataModelForScheduledInvites<ScheduledInvitationsViewModel>>();
   }
 }
 
@@ -73,19 +72,16 @@ final class ShowDataModelForScheduledInvites<ViewModel extends BaseViewModel>
   getData() {
     var appRepo = locator<AppRepo>();
     appLoadingCallback(
-        viewModel.runBusyFuture(
-          appRepo.getAllScheduledInvites().then((value) => value.fold(
-              (l) => showError(l),
-              (r) => {
-                    if (r.data is List)
-                      {
-                        dataList = (r.data as List)
-                            .map((e) =>
-                                ScheduledInvitationsDataObject.fromMap(e))
-                            .toList(),
-                      }
-                  })),
-        ),
+        appRepo.getAllScheduledInvites().then((value) => value.fold(
+            (l) => showError(l),
+            (r) => {
+                  if (r.data is List)
+                    {
+                      dataList = (r.data as List)
+                          .map((e) => ScheduledInvitationsDataObject.fromMap(e))
+                          .toList(),
+                    }
+                })),
         showLoading: dataList.isEmpty);
   }
 

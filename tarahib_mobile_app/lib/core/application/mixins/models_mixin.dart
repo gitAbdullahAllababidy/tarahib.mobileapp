@@ -5,7 +5,6 @@ import 'package:stacked/stacked.dart';
 import 'package:tarahib_mobile_app/core/data/data_objects/response_data_object/response_data_object.dart';
 
 class ModelsAbstract<ViewModel extends BaseViewModel> {
-  late ViewModel viewModel;
   @mustCallSuper
   showError(error) {
     if (error is DioException) {

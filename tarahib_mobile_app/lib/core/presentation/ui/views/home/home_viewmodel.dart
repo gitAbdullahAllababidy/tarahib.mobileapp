@@ -9,7 +9,7 @@ class HomeViewModel extends BaseViewModel {
   final _bottomSheetService = locator<BottomSheetService>();
   late final ShowContactsModel showContactsModel;
   HomeViewModel() {
-    showContactsModel = locator<ShowContactsModel>()..viewModel = this;
+  showContactsModel = locator<ShowContactsModel>();
   }
 
   void showBottomSheet() {

@@ -62,8 +62,7 @@ class AlreadySentInvitationsViewModel extends BaseViewModel {
       showDataModel;
   AlreadySentInvitationsViewModel() {
     showDataModel = locator<
-        ShowDataModelForAlreadySentInvites<AlreadySentInvitationsViewModel>>()
-      ..viewModel = this;
+        ShowDataModelForAlreadySentInvites<AlreadySentInvitationsViewModel>>();
   }
 }
 
@@ -76,18 +75,16 @@ final class ShowDataModelForAlreadySentInvites<ViewModel extends BaseViewModel>
   getData() {
     var appRepo = locator<AppRepo>();
     appLoadingCallback(
-        viewModel.runBusyFuture(
-          appRepo.getAllSendInvites().then((value) => value.fold(
-              (l) => showError(l),
-              (r) => {
-                    if (r.data is List)
-                      {
-                        dataList = (r.data as List)
-                            .map((e) => AlreadySentInvitesDataObject.fromMap(e))
-                            .toList(),
-                      }
-                  })),
-        ),
+        appRepo.getAllSendInvites().then((value) => value.fold(
+            (l) => showError(l),
+            (r) => {
+                  if (r.data is List)
+                    {
+                      dataList = (r.data as List)
+                          .map((e) => AlreadySentInvitesDataObject.fromMap(e))
+                          .toList(),
+                    }
+                })),
         showLoading: dataList.isEmpty);
   }
 
@@ -107,14 +104,13 @@ final class ShowDataModelForAlreadySentInvites<ViewModel extends BaseViewModel>
               DataCell(Text("${getDataObjectByIndex(index).surname}")),
               DataCell(getDataObjectByIndex(index).qrcode != null
                   ? Center(
-                    child: Text(
-                       "${local.show} ${local.qrCode}",
-         
+                      child: Text(
+                        "${local.show} ${local.qrCode}",
                         style: getThem.textTheme.labelLarge?.copyWith(
                             color: Colors.blue,
                             decoration: TextDecoration.underline),
                       ),
-                  )
+                    )
                   : Text(
                       local.empty,
                       style: getThem.textTheme.bodyMedium

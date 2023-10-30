@@ -16,22 +16,20 @@ final class ShowDataModel<ViewModel extends BaseViewModel>
 
   var dataList = <InvitationSettingsDataObject>[];
 
-  getData() {
+  Future getData({bool showLoader = true}) async {
     var appRepo = locator<AppRepo>();
-    appLoadingCallback(
-        viewModel.runBusyFuture(
-          appRepo.getAllInvites().then((value) => value.fold(
-              (l) => showError(l),
-              (r) => {
-                    if (r.data is List)
-                      {
-                        dataList = (r.data as List)
-                            .map((e) => InvitationSettingsDataObject.fromMap(e))
-                            .toList(),
-                      }
-                  })),
-        ),
-        showLoading: dataList.isEmpty);
+    await appLoadingCallback(
+        appRepo.getAllInvites().then((value) => value.fold(
+            (l) => showError(l),
+            (r) => {
+                  if (r.data is List)
+                    {
+                      dataList = (r.data as List)
+                          .map((e) => InvitationSettingsDataObject.fromMap(e))
+                          .toList(),
+                    }
+                })),
+        showLoading: showLoader && dataList.isEmpty);
   }
 
   List<DataRow> get getDataRows {
@@ -39,8 +37,7 @@ final class ShowDataModel<ViewModel extends BaseViewModel>
         dataList.length,
         (index) => DataRow(cells: [
               DataCell(IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.more_vert))),
+                  onPressed: () {}, icon: const Icon(Icons.more_vert))),
               DataCell(Text("${getDataObjectByIndex(index).invitationName}")),
               DataCell(Text("${getDataObjectByIndex(index).code}")),
               DataCell(Text("${getDataObjectByIndex(index).invitationType}")),

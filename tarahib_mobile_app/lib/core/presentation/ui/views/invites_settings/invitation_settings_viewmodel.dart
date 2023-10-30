@@ -9,8 +9,7 @@ class InvitationSettingsViewModel extends BaseViewModel {
   final _bottomSheetService = locator<BottomSheetService>();
   late final ShowDataModel showDataModel;
   InvitationSettingsViewModel() {
-    showDataModel = locator<ShowDataModel<InvitationSettingsViewModel>>()
-      ..viewModel = this;
+    showDataModel = locator<ShowDataModel<InvitationSettingsViewModel>>();
   }
 
   void showBottomSheet() {

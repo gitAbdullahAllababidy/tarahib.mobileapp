@@ -7,7 +7,7 @@ import 'package:tarahib_mobile_app/core/presentation/ui/common/app_colors.dart';
 Widget appLoaderWidget() => const SizedBox(
       width: 80,
       height: 80,
-      child: SpinKitFadingFour(
+      child: SpinKitCubeGrid(
         color: kcPrimaryColor,
       ),
     );
