@@ -7,6 +7,8 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:stacked/stacked.dart';
 import 'package:tarahib_mobile_app/core/data/data_objects/contact_send_invitation_data_object.dart';
+import 'package:tarahib_mobile_app/core/data/data_objects/contacts_list_object/contacts_list_object.dart';
+import 'package:tarahib_mobile_app/core/data/data_objects/invitation_settings_data_object/invitation_settings_data_object.dart';
 import 'package:tarahib_mobile_app/core/data/data_objects/send_invite_data_object.dart';
 import 'package:tarahib_mobile_app/core/global/global_locators.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/common/forms_helpers.dart';
@@ -18,7 +20,6 @@ import 'package:tarahib_mobile_app/core/presentation/ui/views/login/login_view.d
 enum InvitesTypesEnum {
   contact("جهات الاتصال", 'contact'),
   newInvite("جديد", 'personal');
-  
 
   final String str;
   final String id;
@@ -55,7 +56,7 @@ class SendInvitesViewRoteWidget extends HookWidget {
     final viewModel = Provider.of<SendInvitesViewModel>(context);
 
     ///
-    final inviteNameController = useTextEditingController();
+
     final firstNameController = useTextEditingController();
 
     final emailController = useTextEditingController();
@@ -79,6 +80,21 @@ class SendInvitesViewRoteWidget extends HookWidget {
             onChanged: (s) {
               viewModel.selectedSendType = s;
             }),
+        verticalSpaceMedium,
+        DropdownButton<InvitationSettingsDataObject>(
+            isExpanded: true,
+            value: viewModel.invitationSettingsDataObject,
+            hint: Text(local.invitationName),
+            items: invitationSettingsModel.dataList
+                .map((e) => DropdownMenuItem<InvitationSettingsDataObject>(
+                      value: e,
+                      child: Text(e.invitationName ?? ""),
+                    ))
+                .toList(),
+            onChanged: (s) {
+              viewModel.invitationSettingsDataObject = s;
+            }),
+        verticalSpaceMedium,
         Align(
           alignment: AlignmentDirectional.centerStart,
           child: Row(
@@ -134,75 +150,89 @@ class SendInvitesViewRoteWidget extends HookWidget {
         ),
         spacedDivider3,
         verticalSpaceSmall,
-        Row(
-          children: [
-            Flexible(
-              flex: 2,
-              child: AppTextFormFieldWidget(
-                label: local.name,
-                textEditingController: firstNameController,
-                validator:
-                    ValidationBuilderHelper.nameValidationBuilder.build(),
+        if (viewModel.selectedSendType == InvitesTypesEnum.contact) ...[
+          DropdownButton<ContactsListObject>(
+              isExpanded: true,
+              hint: Text(local.contacts),
+              items: contactsModel.contactsList
+                  .map((e) => DropdownMenuItem<ContactsListObject>(
+                        value: e,
+                        child: Text("${e.firstName} ${e.lastName}"),
+                      ))
+                  .toList(),
+              onChanged: (s) {}),
+        ],
+        if (viewModel.selectedSendType == InvitesTypesEnum.newInvite) ...[
+          Row(
+            children: [
+              Flexible(
+                flex: 2,
+                child: AppTextFormFieldWidget(
+                  label: local.name,
+                  textEditingController: firstNameController,
+                  validator:
+                      ValidationBuilderHelper.nameValidationBuilder.build(),
+                ),
               ),
-            ),
-            horizontalSpaceSmall,
-            Flexible(
-              child: AppTextFormFieldWidget(
-                label: local.companionsCount,
-                textEditingController: companionCountController,
-                validator:
-                    ValidationBuilderHelper.numberValidationBuilder.build(),
-                formatters: [FilteringTextInputFormatter.digitsOnly],
-                textInputType: const TextInputType.numberWithOptions(
-                    decimal: false, signed: false),
+              horizontalSpaceSmall,
+              Flexible(
+                child: AppTextFormFieldWidget(
+                  label: local.companionsCount,
+                  textEditingController: companionCountController,
+                  validator:
+                      ValidationBuilderHelper.numberValidationBuilder.build(),
+                  formatters: [FilteringTextInputFormatter.digitsOnly],
+                  textInputType: const TextInputType.numberWithOptions(
+                      decimal: false, signed: false),
+                ),
               ),
-            ),
-          ],
-        ),
-        verticalSpaceMedium,
-        Row(
-          children: [
-            Flexible(
-              flex: 2,
-              child: AppTextFormFieldWidget(
-                label: local.surname,
-                textEditingController: surnameController,
-                validator:
-                    ValidationBuilderHelper.nameValidationBuilder.build(),
+            ],
+          ),
+          verticalSpaceMedium,
+          Row(
+            children: [
+              Flexible(
+                flex: 2,
+                child: AppTextFormFieldWidget(
+                  label: local.surname,
+                  textEditingController: surnameController,
+                  validator:
+                      ValidationBuilderHelper.nameValidationBuilder.build(),
+                ),
               ),
-            ),
-            horizontalSpaceSmall,
-            Flexible(
-              flex: 3,
-              child: AppTextFormFieldWidget(
-                label: local.mobile,
-                textEditingController: mobileController,
-                validator:
-                    ValidationBuilderHelper.numberValidationBuilder.build(),
-                formatters: [FilteringTextInputFormatter.digitsOnly],
-                textInputType: const TextInputType.numberWithOptions(
-                    decimal: false, signed: false),
+              horizontalSpaceSmall,
+              Flexible(
+                flex: 3,
+                child: AppTextFormFieldWidget(
+                  label: local.mobile,
+                  textEditingController: mobileController,
+                  validator:
+                      ValidationBuilderHelper.numberValidationBuilder.build(),
+                  formatters: [FilteringTextInputFormatter.digitsOnly],
+                  textInputType: const TextInputType.numberWithOptions(
+                      decimal: false, signed: false),
+                ),
               ),
-            ),
-          ],
-        ),
-        verticalSpaceMedium,
-        AppTextFormFieldWidget(
-          label: local.email,
-          textEditingController: emailController,
-          validator: ValidationBuilderHelper.emailValidationBuilder.build(),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Switch(
-                value: viewModel.saveAsNewContact,
-                onChanged: (v) {
-                  viewModel.saveAsNewContact = v;
-                }),
-            Text(local.saveAsNewContact)
-          ],
-        ),
+            ],
+          ),
+          verticalSpaceMedium,
+          AppTextFormFieldWidget(
+            label: local.email,
+            textEditingController: emailController,
+            validator: ValidationBuilderHelper.emailValidationBuilder.build(),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Switch(
+                  value: viewModel.saveAsNewContact,
+                  onChanged: (v) {
+                    viewModel.saveAsNewContact = v;
+                  }),
+              Text(local.saveAsNewContact)
+            ],
+          ),
+        ],
         verticalSpaceMedium,
         FractionallySizedBox(
           widthFactor: .8,
@@ -216,9 +246,9 @@ class SendInvitesViewRoteWidget extends HookWidget {
 }
 
 class SendInvitesViewModel extends BaseViewModel {
-  InvitesTypesEnum? _selectedSendType;
+  InvitesTypesEnum? _selectedSendType = InvitesTypesEnum.newInvite;
 
-  get selectedSendType => _selectedSendType;
+  InvitesTypesEnum? get selectedSendType => _selectedSendType;
 
   set selectedSendType(value) {
     _selectedSendType = value;
@@ -252,20 +282,19 @@ class SendInvitesViewModel extends BaseViewModel {
     rebuildUi();
   }
 
-  var _newInviteDataObject = SendInviteDataObject();
+  InvitationSettingsDataObject? _invitationSettingsDataObject;
 
-  SendInviteDataObject get newInviteDataObject => _newInviteDataObject;
+  InvitationSettingsDataObject? get invitationSettingsDataObject =>
+      _invitationSettingsDataObject;
 
-  set newInviteDataObject(value) {
-    _newInviteDataObject = value;
+  set invitationSettingsDataObject(value) {
+    _invitationSettingsDataObject = value;
+    rebuildUi();
   }
 
-  var _contactInvitesDataObject = ContactSendInvitationDataObject();
+  var selectedContactDataObject = <ContactsListObject>[];
 
-  ContactSendInvitationDataObject get contactInvitesDataObject =>
-      _contactInvitesDataObject;
+  var newInviteDataObject = SendInviteDataObject();
 
-  set contactInvitesDataObject(value) {
-    _contactInvitesDataObject = value;
-  }
+  var contactInvitesDataObject = ContactSendInvitationDataObject();
 }

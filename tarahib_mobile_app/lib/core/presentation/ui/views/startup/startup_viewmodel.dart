@@ -1,12 +1,8 @@
 import 'package:stacked/stacked.dart';
-import 'package:tarahib_mobile_app/app/app.locator.dart';
 import 'package:tarahib_mobile_app/app/app.router.dart';
 import 'package:tarahib_mobile_app/core/application/services/cache_store_service.dart';
 import 'package:tarahib_mobile_app/core/application/services/storage_service/storage_service.dart';
 import 'package:tarahib_mobile_app/core/global/global_locators.dart';
-import 'package:tarahib_mobile_app/core/presentation/ui/views/home/models/show_contacts_model.dart';
-import 'package:tarahib_mobile_app/core/presentation/ui/views/invites_settings/invitation_settings_viewmodel.dart';
-import 'package:tarahib_mobile_app/core/presentation/ui/views/invites_settings/models/show_data_model.dart';
 
 class StartupViewModel extends BaseViewModel {
   Future runStartupLogic() async {
@@ -15,9 +11,8 @@ class StartupViewModel extends BaseViewModel {
       await CacheStoreService.initCacheStore();
       await StorageService.init();
     }
-    await locator<ShowContactsModel>().getAllContacts(showLoader: false);
-  await locator<ShowDataModel<InvitationSettingsViewModel>>()
-        .getData(showLoader: false);
+    await contactsModel.getAllContacts(showLoader: false);
+    await invitationSettingsModel.getData(showLoader: false);
     if (userDataStore.getUser().isLeft()) {
       return navigationService.replaceWithLoginView();
     }
