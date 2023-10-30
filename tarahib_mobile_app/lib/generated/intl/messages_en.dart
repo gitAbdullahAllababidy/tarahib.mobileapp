@@ -31,9 +31,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "companionsCount":
             MessageLookupByLibrary.simpleMessage("Companions count"),
         "contacts": MessageLookupByLibrary.simpleMessage("Contacts"),
+        "dateAndTime": MessageLookupByLibrary.simpleMessage("Date and time"),
         "details": MessageLookupByLibrary.simpleMessage(" "),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "empty": MessageLookupByLibrary.simpleMessage("Empty"),
+        "generalSettings":
+            MessageLookupByLibrary.simpleMessage("General Settings"),
         "groups": MessageLookupByLibrary.simpleMessage("Groups"),
         "internetConnectionMsg":
             MessageLookupByLibrary.simpleMessage("No internet connection"),
@@ -56,6 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "procedures": MessageLookupByLibrary.simpleMessage("Procedures "),
         "qrCode": MessageLookupByLibrary.simpleMessage("QR"),
         "rejectSatus": MessageLookupByLibrary.simpleMessage("Rejected"),
+        "scheduled": MessageLookupByLibrary.simpleMessage("Use schedule"),
         "scheduledInvitations":
             MessageLookupByLibrary.simpleMessage("Scheduled invitations"),
         "secretNum": MessageLookupByLibrary.simpleMessage(" "),
@@ -63,6 +67,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sendInvitations":
             MessageLookupByLibrary.simpleMessage("Send Invitations"),
         "sendReminder": MessageLookupByLibrary.simpleMessage("sendReminder"),
+        "sendType": MessageLookupByLibrary.simpleMessage("Send type"),
         "sentDate": MessageLookupByLibrary.simpleMessage("  "),
         "show": MessageLookupByLibrary.simpleMessage("Show"),
         "snetDate": MessageLookupByLibrary.simpleMessage("Sent date"),

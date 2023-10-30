@@ -30,9 +30,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "audience": MessageLookupByLibrary.simpleMessage("الحضور"),
         "companionsCount": MessageLookupByLibrary.simpleMessage("المرافقين"),
         "contacts": MessageLookupByLibrary.simpleMessage("جهات الاتصال"),
+        "dateAndTime": MessageLookupByLibrary.simpleMessage("التاريخ والوقت"),
         "details": MessageLookupByLibrary.simpleMessage("تفاصيل"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
         "empty": MessageLookupByLibrary.simpleMessage("فارغ"),
+        "generalSettings": MessageLookupByLibrary.simpleMessage("إعدادات عامة"),
         "groups": MessageLookupByLibrary.simpleMessage("المجموعات"),
         "internetConnectionMsg": MessageLookupByLibrary.simpleMessage(
             "لا يوجد اتصال بالشبكة، عاود لاحقاً"),
@@ -57,6 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "procedures": MessageLookupByLibrary.simpleMessage("خيارات"),
         "qrCode": MessageLookupByLibrary.simpleMessage("QR"),
         "rejectSatus": MessageLookupByLibrary.simpleMessage("مرفوض"),
+        "scheduled": MessageLookupByLibrary.simpleMessage("جدولة"),
         "scheduledInvitations":
             MessageLookupByLibrary.simpleMessage("الدعوات المجدولة"),
         "secretNum": MessageLookupByLibrary.simpleMessage("الرقم السري"),
@@ -64,6 +67,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sendInvitations":
             MessageLookupByLibrary.simpleMessage("إرسال الدعوات"),
         "sendReminder": MessageLookupByLibrary.simpleMessage("ارسال تذكير"),
+        "sendType": MessageLookupByLibrary.simpleMessage("نوع الارسال"),
         "sentDate": MessageLookupByLibrary.simpleMessage("تاريخ الارسال"),
         "show": MessageLookupByLibrary.simpleMessage("عرض"),
         "snetDate": MessageLookupByLibrary.simpleMessage("تاريخ الارسال"),

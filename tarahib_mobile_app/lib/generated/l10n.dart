@@ -120,6 +120,16 @@ class S {
     );
   }
 
+  /// `Date and time`
+  String get dateAndTime {
+    return Intl.message(
+      'Date and time',
+      name: 'dateAndTime',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// ` `
   String get details {
     return Intl.message(
@@ -145,6 +155,16 @@ class S {
     return Intl.message(
       'Empty',
       name: 'empty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `General Settings`
+  String get generalSettings {
+    return Intl.message(
+      'General Settings',
+      name: 'generalSettings',
       desc: '',
       args: [],
     );
@@ -330,6 +350,16 @@ class S {
     );
   }
 
+  /// `Use schedule`
+  String get scheduled {
+    return Intl.message(
+      'Use schedule',
+      name: 'scheduled',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Scheduled invitations`
   String get scheduledInvitations {
     return Intl.message(
@@ -375,6 +405,16 @@ class S {
     return Intl.message(
       'sendReminder',
       name: 'sendReminder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send type`
+  String get sendType {
+    return Intl.message(
+      'Send type',
+      name: 'sendType',
       desc: '',
       args: [],
     );

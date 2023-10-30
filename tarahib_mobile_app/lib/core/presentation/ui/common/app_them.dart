@@ -5,12 +5,21 @@ import 'package:tarahib_mobile_app/core/presentation/ui/common/app_colors.dart';
 
 ThemeData setAppThem() => ThemeData(
     drawerTheme: const DrawerThemeData(),
+    switchTheme: SwitchThemeData(
+        thumbColor: MaterialStateProperty.resolveWith<Color?>((states) {
+      return switch (states) {
+        _ when states.contains(MaterialState.selected) => kcPrimaryColor,
+        _ => null,
+      };
+    }), trackColor: MaterialStateProperty.resolveWith<Color?>((states) {
+      return switch (states) {
+        _ when states.contains(MaterialState.selected) => kcPrimaryColor.withOpacity(.3),
+        _ => null,
+      };
+    })),
     appBarTheme: const AppBarTheme(color: kcPrimaryColor),
     textTheme: TextTheme(
-      titleLarge: GoogleFonts.cairo(
-        fontSize: 26,
-        fontWeight: FontWeight.bold
-      ),
+      titleLarge: GoogleFonts.cairo(fontSize: 26, fontWeight: FontWeight.bold),
       titleMedium: GoogleFonts.cairo(fontSize: 20),
       titleSmall: GoogleFonts.cairo(fontSize: 16),
       bodyLarge: GoogleFonts.cairo(fontSize: 16),

@@ -36,7 +36,7 @@ final class ShowContactsModel extends ModelsAbstract<HomeViewModel> {
         (index) => DataRow(cells: [
               DataCell(IconButton(
                   onPressed: () {},
-                  icon: const Icon(Icons.miscellaneous_services_sharp))),
+                  icon: const Icon(Icons.more_vert))),
               DataCell(Text(
                   "${getContactByIndex(index).firstName} ${getContactByIndex(index).lastName}")),
               DataCell(Text("${getContactByIndex(index).email}")),

@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:form_validator/form_validator.dart';
@@ -144,10 +145,14 @@ class AppTextFormFieldWidget extends StatelessWidget {
     this.textEditingController,
     this.validator,
     this.label,
+    this.textInputType,
+    this.formatters,
   });
   final TextEditingController? textEditingController;
   final String? Function(String?)? validator;
   final String? label;
+  final TextInputType? textInputType;
+  final List<TextInputFormatter>? formatters;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -157,13 +162,17 @@ class AppTextFormFieldWidget extends StatelessWidget {
         cursorColor: kcDarkGreyColor,
         cursorRadius: const Radius.circular(10),
         cursorWidth: 1,
+        keyboardType: textInputType,
+        inputFormatters: formatters,
         decoration: InputDecoration(
             contentPadding:
                 const EdgeInsets.symmetric(vertical: 14, horizontal: 10),
             labelText: label ?? "Label",
             labelStyle: getThem.textTheme.bodyMedium,
-            border: OutlineInputBorder(
-                borderSide: BorderSide(color: kcVeryLightGrey.withOpacity(.4))),
+            border: const OutlineInputBorder(
+                borderSide: BorderSide(color: kcWhiteColor)),
+            enabledBorder: const OutlineInputBorder(
+                borderSide: BorderSide(color: kcVeryLightGrey)),
             focusedBorder: const OutlineInputBorder(
                 borderSide: BorderSide(color: kcPrimaryColor))),
       ),
