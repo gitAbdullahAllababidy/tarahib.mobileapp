@@ -11,11 +11,12 @@ class StartupViewModel extends BaseViewModel {
       await CacheStoreService.initCacheStore();
       await StorageService.init();
     }
-    await contactsModel.getAllContacts(showLoader: false);
-    await invitationSettingsModel.getData(showLoader: false);
+
     if (userDataStore.getUser().isLeft()) {
       return navigationService.replaceWithLoginView();
     }
+    await contactsModel.getAllContacts(showLoader: false);
+    await invitationSettingsModel.getData(showLoader: false);
     return navigationService.replaceWithSendInvitesView();
   }
 }

@@ -29,7 +29,7 @@ final class LoginModel extends ModelsAbstract<LoginViewModel> {
     if (userInfo != null) {
       ///Save user data
       userDataStore.add(Map<String, dynamic>.from(userInfo));
-      navigationService.replaceWithHomeView();
+      navigationService.replaceWithSendInvitesView();
     }
   }
 }
