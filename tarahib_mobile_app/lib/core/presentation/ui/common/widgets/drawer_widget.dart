@@ -45,8 +45,11 @@ class HomeDrawerWidget extends HookWidget {
           ),
           spacedDivider,
           DrawerButtonWidget(
-            isSelected: currentRouteService.currentRoute == Routes.homeView,
-            onTap: navigationService.replaceWithHomeView,
+            isSelected:
+                currentRouteService.currentRoute == Routes.sendInvitesView,
+            onTap: navigationService.replaceWithSendInvitesView,
+            icon: Icons.send_time_extension_outlined,
+            label: local.sendInvitations,
           ),
           // DrawerButtonWidget(
           //   onTap: navigationService.replaceWithGroupsView,
@@ -63,31 +66,29 @@ class HomeDrawerWidget extends HookWidget {
             icon: Icons.settings_applications_outlined,
           ),
           DrawerButtonWidget(
-            isSelected:
-                currentRouteService.currentRoute == Routes.sendInvitesView,
-            onTap: navigationService.replaceWithSendInvitesView,
-            icon: Icons.send_time_extension_outlined,
-            label: local.sendInvitations,
+            isSelected: currentRouteService.currentRoute == Routes.homeView,
+            onTap: navigationService.replaceWithHomeView,
+            icon: Icons.quick_contacts_mail_outlined,
+            label: local.contacts,
           ),
           DrawerButtonWidget(
             isSelected: currentRouteService.currentRoute ==
                 Routes.alreadySentInvitesView,
             onTap: navigationService.replaceWithAlreadySentInvitesView,
             icon: Icons.mark_email_read_outlined,
-             label: local.alreadySentInvitations,
+            label: local.alreadySentInvitations,
           ),
           DrawerButtonWidget(
             isSelected:
                 currentRouteService.currentRoute == Routes.scheduledInvitesView,
             onTap: navigationService.replaceWithScheduledInvitesView,
             icon: Icons.schedule_sharp,
-              label: local.scheduledInvitations,
+            label: local.scheduledInvitations,
           ),
           DrawerButtonWidget(
             isSelected: false,
             label: local.audience,
             icon: Icons.nature_people_outlined,
-            
           ),
           spacedDivider,
           DrawerButtonWidget(

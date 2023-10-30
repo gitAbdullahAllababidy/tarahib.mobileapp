@@ -12,22 +12,20 @@ final class ShowContactsModel extends ModelsAbstract<HomeViewModel> {
 
   var contactsList = <ContactsListObject>[];
 
-  getAllContacts() {
+  Future getAllContacts({bool showLoader = true}) async {
     var contactRepo = locator<ContactsRepo>();
-    appLoadingCallback(
-        viewModel.runBusyFuture(
-          contactRepo.getAllContacts().then((value) => value.fold(
-              (l) => showError(l),
-              (r) => {
-                    if (r.data is List)
-                      {
-                        contactsList = (r.data as List)
-                            .map((e) => ContactsListObject.fromMap(e))
-                            .toList(),
-                      }
-                  })),
-        ),
-        showLoading: contactsList.isEmpty);
+    await appLoadingCallback(
+        contactRepo.getAllContacts().then((value) => value.fold(
+            (l) => showError(l),
+            (r) => {
+                  if (r.data is List)
+                    {
+                      contactsList = (r.data as List)
+                          .map((e) => ContactsListObject.fromMap(e))
+                          .toList(),
+                    }
+                })),
+        showLoading: showLoader && contactsList.isEmpty);
   }
 
   List<DataRow> get getDataRows {
@@ -35,8 +33,7 @@ final class ShowContactsModel extends ModelsAbstract<HomeViewModel> {
         contactsList.length,
         (index) => DataRow(cells: [
               DataCell(IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.more_vert))),
+                  onPressed: () {}, icon: const Icon(Icons.more_vert))),
               DataCell(Text(
                   "${getContactByIndex(index).firstName} ${getContactByIndex(index).lastName}")),
               DataCell(Text("${getContactByIndex(index).email}")),

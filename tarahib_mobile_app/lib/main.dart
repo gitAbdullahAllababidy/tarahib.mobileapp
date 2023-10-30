@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:developer';
+
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -14,12 +17,20 @@ import 'package:tarahib_mobile_app/core/presentation/ui/common/app_them.dart';
 import 'package:tarahib_mobile_app/generated/l10n.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await setupLocator();
-  setupDialogUi();
-  setupBottomSheetUi();
-
-  runApp(const MainApp());
+  runZonedGuarded(() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    await setupLocator();
+    setupDialogUi();
+    setupBottomSheetUi();
+    runApp(const MainApp());
+  }, (error, stack) {
+    log(
+      "Error",
+      error: error,
+      level: 0,
+    );
+    log("ErrorStack", stackTrace: stack, level: 1);
+  });
 }
 
 class MainApp extends HookWidget {
