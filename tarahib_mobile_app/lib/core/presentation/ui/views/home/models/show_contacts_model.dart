@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:stacked/stacked.dart';
 import 'package:tarahib_mobile_app/app/app.locator.dart';
+import 'package:tarahib_mobile_app/core/application/extentions/light_extentions.dart';
 import 'package:tarahib_mobile_app/core/application/mixins/models_mixin.dart';
 import 'package:tarahib_mobile_app/core/data/data_objects/contacts_list_object/contacts_list_object.dart';
 import 'package:tarahib_mobile_app/core/data/repositories/contacts_repo.dart';
@@ -12,7 +14,8 @@ final class ShowContactsModel extends ModelsAbstract<HomeViewModel> {
 
   var contactsList = <ContactsListObject>[];
 
-  Future getAllContacts({bool showLoader = true}) async {
+  Future getAllContacts(
+      {bool showLoader = true, BaseViewModel? viewModel}) async {
     var contactRepo = locator<ContactsRepo>();
     await appLoadingCallback(
         contactRepo.getAllContacts().then((value) => value.fold(

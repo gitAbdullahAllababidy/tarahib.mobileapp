@@ -17,7 +17,9 @@ class ScheduledInvitesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<ScheduledInvitationsViewModel>.nonReactive(
-        onViewModelReady: (viewModel) => viewModel.showDataModel.getData(),
+        onViewModelReady: (viewModel) => viewModel.showDataModel
+            .getData()
+            .whenComplete(() => viewModel.rebuildUi()),
         viewModelBuilder: () {
           return ScheduledInvitationsViewModel();
         },
@@ -69,9 +71,9 @@ final class ShowDataModelForScheduledInvites<ViewModel extends BaseViewModel>
 
   var dataList = <ScheduledInvitationsDataObject>[];
 
-  getData() {
+  Future getData() async {
     var appRepo = locator<AppRepo>();
-    appLoadingCallback(
+    await appLoadingCallback(
         appRepo.getAllScheduledInvites().then((value) => value.fold(
             (l) => showError(l),
             (r) => {

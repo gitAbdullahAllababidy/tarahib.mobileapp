@@ -19,7 +19,9 @@ class AlreadySentInvitesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<AlreadySentInvitationsViewModel>.nonReactive(
-        onViewModelReady: (viewModel) => viewModel.showDataModel.getData(),
+        onViewModelReady: (viewModel) => viewModel.showDataModel
+            .getData()
+            .whenComplete(() => viewModel.rebuildUi()),
         viewModelBuilder: () {
           return AlreadySentInvitationsViewModel();
         },
@@ -72,9 +74,9 @@ final class ShowDataModelForAlreadySentInvites<ViewModel extends BaseViewModel>
 
   var dataList = <AlreadySentInvitesDataObject>[];
 
-  getData() {
+  Future getData() async {
     var appRepo = locator<AppRepo>();
-    appLoadingCallback(
+    await appLoadingCallback(
         appRepo.getAllSendInvites().then((value) => value.fold(
             (l) => showError(l),
             (r) => {

@@ -13,7 +13,7 @@ class InvitesSettingsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<InvitationSettingsViewModel>.nonReactive(
-        onViewModelReady: (viewModel) => {viewModel.showDataModel.getData()},
+        onViewModelReady: (viewModel) => {viewModel.showDataModel.getData().whenComplete(() => viewModel.rebuildUi())},
         viewModelBuilder: () => InvitationSettingsViewModel(),
         builder: (context, viewModel, _) {
           return FloatingActionWithDrawerAndAppbarAppHomeView(

@@ -19,7 +19,9 @@ class HomeView extends HookWidget {
     return ViewModelBuilder<HomeViewModel>.nonReactive(
       viewModelBuilder: () => HomeViewModel(),
       onViewModelReady: (viewModel) => {
-        viewModel.showContactsModel.getAllContacts(),
+        viewModel.showContactsModel
+            .getAllContacts()
+            .whenComplete(() => viewModel.rebuildUi()),
       },
       builder: (context, viewModel, child) =>
           const FloatingActionWithDrawerAndAppbarAppHomeView(

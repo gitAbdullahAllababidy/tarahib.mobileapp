@@ -18,6 +18,7 @@ import 'package:tarahib_mobile_app/core/presentation/ui/views/login/login_view.d
 enum InvitesTypesEnum {
   contact("جهات الاتصال", 'contact'),
   newInvite("جديد", 'personal');
+  
 
   final String str;
   final String id;
@@ -65,34 +66,19 @@ class SendInvitesViewRoteWidget extends HookWidget {
     return Form(
         child: Column(
       children: [
-        SizedBox(
-          child: Row(
-            children: [
-              Flexible(
-                child: AppTextFormFieldWidget(
-                  label: local.invitationName,
-                  textEditingController: inviteNameController
-                    ..addListener(() {}),
-                  validator:
-                      ValidationBuilderHelper.nameValidationBuilder.build(),
-                ),
-              ),
-              horizontalSpaceMedium,
-              DropdownButton<InvitesTypesEnum>(
-                  value: viewModel.selectedSendType,
-                  hint: Text(local.sendType),
-                  items: InvitesTypesEnum.values
-                      .map((e) => DropdownMenuItem<InvitesTypesEnum>(
-                            value: e,
-                            child: Text(e.str),
-                          ))
-                      .toList(),
-                  onChanged: (s) {
-                    viewModel.selectedSendType = s;
-                  }),
-            ],
-          ),
-        ),
+        DropdownButton<InvitesTypesEnum>(
+            isExpanded: true,
+            value: viewModel.selectedSendType,
+            hint: Text(local.sendType),
+            items: InvitesTypesEnum.values
+                .map((e) => DropdownMenuItem<InvitesTypesEnum>(
+                      value: e,
+                      child: Text(e.str),
+                    ))
+                .toList(),
+            onChanged: (s) {
+              viewModel.selectedSendType = s;
+            }),
         Align(
           alignment: AlignmentDirectional.centerStart,
           child: Row(
@@ -230,7 +216,7 @@ class SendInvitesViewRoteWidget extends HookWidget {
 }
 
 class SendInvitesViewModel extends BaseViewModel {
-  var _selectedSendType = InvitesTypesEnum.newInvite;
+  InvitesTypesEnum? _selectedSendType;
 
   get selectedSendType => _selectedSendType;
 
