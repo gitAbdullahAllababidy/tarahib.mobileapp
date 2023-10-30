@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:stacked/stacked.dart';
 import 'package:tarahib_mobile_app/app/app.locator.dart';
 import 'package:tarahib_mobile_app/core/application/mixins/models_mixin.dart';
+import 'package:tarahib_mobile_app/core/application/services/light_services/qr_code_generator.dart';
 import 'package:tarahib_mobile_app/core/data/data_objects/already_sent_invites_data_object/already_sent_invites_data_object.dart';
 import 'package:tarahib_mobile_app/core/data/repositories/app_repo.dart';
 import 'package:tarahib_mobile_app/core/global/global_locators.dart';
@@ -105,12 +106,16 @@ final class ShowDataModelForAlreadySentInvites<ViewModel extends BaseViewModel>
                   "${getDataObjectByIndex(index).firstName} ${getDataObjectByIndex(index).lastName}")),
               DataCell(Text("${getDataObjectByIndex(index).surname}")),
               DataCell(getDataObjectByIndex(index).qrcode != null
-                  ? Center(
-                      child: Text(
-                        "${local.show} ${local.qrCode}",
-                        style: getThem.textTheme.labelLarge?.copyWith(
-                            color: Colors.blue,
-                            decoration: TextDecoration.underline),
+                  ? InkWell(
+                      onTap: () => QrCodeGenerator.show(
+                          getDataObjectByIndex(index).qrcode),
+                      child: Center(
+                        child: Text(
+                          "${local.show} ${local.qrCode}",
+                          style: getThem.textTheme.labelLarge?.copyWith(
+                              color: Colors.blue,
+                              decoration: TextDecoration.underline),
+                        ),
                       ),
                     )
                   : Text(
