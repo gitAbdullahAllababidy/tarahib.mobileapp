@@ -50,6 +50,16 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `Accepted`
+  String get accpetedStaus {
+    return Intl.message(
+      'Accepted',
+      name: 'accpetedStaus',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `  `
   String get addNew {
     return Intl.message(
@@ -125,6 +135,16 @@ class S {
     return Intl.message(
       'Email',
       name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Empty`
+  String get empty {
+    return Intl.message(
+      'Empty',
+      name: 'empty',
       desc: '',
       args: [],
     );
@@ -260,6 +280,16 @@ class S {
     );
   }
 
+  /// `Need answer`
+  String get needAnswerStatus {
+    return Intl.message(
+      'Need answer',
+      name: 'needAnswerStatus',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Password`
   String get password {
     return Intl.message(
@@ -275,6 +305,26 @@ class S {
     return Intl.message(
       'Procedures ',
       name: 'procedures',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `QR`
+  String get qrCode {
+    return Intl.message(
+      'QR',
+      name: 'qrCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Rejected`
+  String get rejectSatus {
+    return Intl.message(
+      'Rejected',
+      name: 'rejectSatus',
       desc: '',
       args: [],
     );
@@ -300,11 +350,51 @@ class S {
     );
   }
 
+  /// `Send Count`
+  String get sendCount {
+    return Intl.message(
+      'Send Count',
+      name: 'sendCount',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Send Invitations`
   String get sendInvitations {
     return Intl.message(
       'Send Invitations',
       name: 'sendInvitations',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `sendReminder`
+  String get sendReminder {
+    return Intl.message(
+      'sendReminder',
+      name: 'sendReminder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show`
+  String get show {
+    return Intl.message(
+      'Show',
+      name: 'show',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Status`
+  String get status {
+    return Intl.message(
+      'Status',
+      name: 'status',
       desc: '',
       args: [],
     );

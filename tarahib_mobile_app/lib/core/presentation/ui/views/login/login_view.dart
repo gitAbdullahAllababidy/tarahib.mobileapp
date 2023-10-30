@@ -59,16 +59,12 @@ class LoginView extends HookWidget {
                       children: [
                         Text(
                           S.current.taraheeb,
-                          style: getThem
-                              .textTheme
-                              .titleMedium
+                          style: getThem.textTheme.titleMedium
                               ?.copyWith(color: kcPrimaryColor),
                         ),
                         Text(
                           S.current.login_and_planing,
-                          style: getThem
-                              .textTheme
-                              .bodyMedium
+                          style: getThem.textTheme.bodyMedium
                               ?.copyWith(color: kcDarkGreyColor),
                         ),
                         verticalSpaceMedium,
@@ -112,22 +108,33 @@ class LoginView extends HookWidget {
 }
 
 class AppButtonWidget extends StatelessWidget {
-  const AppButtonWidget({
-    super.key,
-    this.voidCallback,
-    this.label,
-  });
+  const AppButtonWidget(
+      {super.key, this.voidCallback, this.label, this.outlinedStyle = false});
   final VoidCallback? voidCallback;
   final String? label;
+  final bool outlinedStyle;
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
-        voidCallback?.call();
-      },
-      style: ElevatedButton.styleFrom(backgroundColor: kcPrimaryColor),
-      child: Text(label ?? S.current.submit),
-    );
+    return outlinedStyle
+        ? OutlinedButton(
+            style: OutlinedButton.styleFrom(
+                side: const BorderSide(color: kcPrimaryColor, width: .3)),
+            onPressed: voidCallback?.call,
+            child: Text(
+              label ?? S.current.submit,
+              style:
+                  getThem.textTheme.bodyMedium?.copyWith(color: kcPrimaryColor),
+            ),
+          )
+        : ElevatedButton(
+            onPressed: () {
+              voidCallback?.call();
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: kcPrimaryColor,
+            ),
+            child: Text(label ?? S.current.submit),
+          );
   }
 }
 

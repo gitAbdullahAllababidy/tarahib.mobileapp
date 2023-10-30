@@ -21,19 +21,21 @@ class FloatingActionWithDrawerAndAppbarAppHomeView extends StatelessWidget {
     return Scaffold(
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
-      floatingActionButton: GestureDetector(
-        onTap: floatingAcSettings?.onTap,
-        child: const CircleAvatar(
-            backgroundColor: kcPrimaryColor,
-            radius: 30,
-            child: Center(
-              child: Icon(
-                Icons.add,
-                color: kcWhiteColor,
-                size: 25,
-              ),
-            )),
-      ),
+      floatingActionButton: floatingAcSettings?.onTap != null
+          ? GestureDetector(
+              onTap: floatingAcSettings?.onTap,
+              child: const CircleAvatar(
+                  backgroundColor: kcPrimaryColor,
+                  radius: 30,
+                  child: Center(
+                    child: Icon(
+                      Icons.add,
+                      color: kcWhiteColor,
+                      size: 25,
+                    ),
+                  )),
+            )
+          : const SizedBox(),
       drawer: const HomeDrawerWidget(),
       appBar: AppBar(
         title: Text(

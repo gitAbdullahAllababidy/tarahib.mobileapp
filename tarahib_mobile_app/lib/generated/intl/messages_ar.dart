@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "accpetedStaus": MessageLookupByLibrary.simpleMessage("مقبول"),
         "addNew": MessageLookupByLibrary.simpleMessage("اضافة جديد"),
         "addToGroup": MessageLookupByLibrary.simpleMessage("اضافة لمجموعة"),
         "alreadySentInvitations":
@@ -31,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "contacts": MessageLookupByLibrary.simpleMessage("جهات الاتصال"),
         "details": MessageLookupByLibrary.simpleMessage("تفاصيل"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
+        "empty": MessageLookupByLibrary.simpleMessage("فارغ"),
         "groups": MessageLookupByLibrary.simpleMessage("المجموعات"),
         "internetConnectionMsg": MessageLookupByLibrary.simpleMessage(
             "لا يوجد اتصال بالشبكة، عاود لاحقاً"),
@@ -49,13 +51,21 @@ class MessageLookup extends MessageLookupByLibrary {
             "عملية تسجيل الخروج تؤدي الى حذف جميع البيانات الخاصة بك"),
         "mobile": MessageLookupByLibrary.simpleMessage("الجوال"),
         "name": MessageLookupByLibrary.simpleMessage("الاسم"),
+        "needAnswerStatus":
+            MessageLookupByLibrary.simpleMessage("بحاجة الى اجابة"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "procedures": MessageLookupByLibrary.simpleMessage("خيارات"),
+        "qrCode": MessageLookupByLibrary.simpleMessage("QR"),
+        "rejectSatus": MessageLookupByLibrary.simpleMessage("مرفوض"),
         "scheduledInvitations":
             MessageLookupByLibrary.simpleMessage("الدعوات المجدولة"),
         "secretNum": MessageLookupByLibrary.simpleMessage("الرقم السري"),
+        "sendCount": MessageLookupByLibrary.simpleMessage("تعداد مرات الارسال"),
         "sendInvitations":
             MessageLookupByLibrary.simpleMessage("إرسال الدعوات"),
+        "sendReminder": MessageLookupByLibrary.simpleMessage("ارسال تذكير"),
+        "show": MessageLookupByLibrary.simpleMessage("عرض"),
+        "status": MessageLookupByLibrary.simpleMessage("الحالة"),
         "submit": MessageLookupByLibrary.simpleMessage("تأكيد"),
         "success": MessageLookupByLibrary.simpleMessage("تمت العملية بنجاح"),
         "surname": MessageLookupByLibrary.simpleMessage("اللقب"),

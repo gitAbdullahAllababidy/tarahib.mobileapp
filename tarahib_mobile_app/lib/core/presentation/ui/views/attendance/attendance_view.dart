@@ -7,8 +7,8 @@ import 'package:tarahib_mobile_app/core/presentation/ui/common/widgets/floating_
 import 'package:tarahib_mobile_app/core/presentation/ui/common/widgets/root_widget.dart';
 import 'package:tarahib_mobile_app/core/presentation/ui/views/invites_settings/invitation_settings_viewmodel.dart';
 
-class InvitesSettingsView extends StatelessWidget {
-  const InvitesSettingsView({super.key});
+class AttendanceView extends StatelessWidget {
+  const AttendanceView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -50,5 +50,3 @@ class _TableWidget extends StatelessWidget {
         ));
   }
 }
-
-

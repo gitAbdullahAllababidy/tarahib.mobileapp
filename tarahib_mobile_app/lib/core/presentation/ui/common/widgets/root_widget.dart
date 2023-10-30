@@ -13,8 +13,9 @@ class RootWidget extends StatelessWidget {
     return SafeArea(
       child: SizedBox(
         child: ListView(
+          physics: const BouncingScrollPhysics(),
           padding: EdgeInsets.symmetric(horizontal: 25.0.w, vertical: 15.0.h),
-          children: [verticalSpaceMedium, ...chields],
+          children: [verticalSpaceMedium, ...chields, verticalSpaceMassive],
         ),
       ),
     );

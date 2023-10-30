@@ -18,6 +18,7 @@ import '../core/application/services/storage_service/user_data_store.dart';
 import '../core/data/repositories/app_repo.dart';
 import '../core/data/repositories/auth_repo.dart';
 import '../core/data/repositories/contacts_repo.dart';
+import '../core/presentation/ui/views/aleardy_sent_invites/already_sent_invites_view.dart';
 import '../core/presentation/ui/views/home/models/show_contacts_model.dart';
 import '../core/presentation/ui/views/invites_settings/models/show_data_model.dart';
 
@@ -39,8 +40,9 @@ Future<void> setupLocator({
   locator.registerLazySingleton(() => CurrentRouteService());
   locator.registerLazySingleton(() => ShowContactsModel());
   locator.registerLazySingleton(
-      () => ShowDataModel<InvitationSettingsViewModel>(),
-      instanceName: '/invites-settings-view');
+      () => ShowDataModel<InvitationSettingsViewModel>());
+  locator.registerLazySingleton(() =>
+      ShowDataModelForAlreadySentInvites<AlreadySentInvitationsViewModel>());
   locator.registerFactory(() => NetworkService());
   locator.registerFactory(() => AuthRepo());
   locator.registerFactory(() => ContactsRepo());
