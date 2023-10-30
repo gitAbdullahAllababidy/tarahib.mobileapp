@@ -86,9 +86,13 @@ class HomeDrawerWidget extends HookWidget {
             label: local.scheduledInvitations,
           ),
           DrawerButtonWidget(
-            isSelected: false,
+            isSelected:
+                currentRouteService.currentRoute == Routes.attendanceView,
             label: local.audience,
             icon: Icons.nature_people_outlined,
+            onTap: () {
+              navigationService.replaceWithAttendanceView();
+            },
           ),
           spacedDivider,
           DrawerButtonWidget(

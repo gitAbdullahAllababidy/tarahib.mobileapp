@@ -25,6 +25,8 @@ class User extends Equatable {
 	final dynamic mainGuest;
 	final Invitation? invitation;
 
+  String get fullName => "$firstName $lastName";
+
 	const User({
 		this.id, 
 		this.userId, 

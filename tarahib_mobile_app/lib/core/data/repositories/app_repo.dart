@@ -30,4 +30,14 @@ final class AppRepo with RepoMixin {
         cancelToken: cancelToken,
         interceptors: []);
   }
+
+  Future<AppResponseType<ResponseDataObject>> getAllAttendanceInvites() async {
+    return await networkService.getRequest(
+        AppDataSrc().getAllAttendanceInvitesApi,
+        authorized: true,
+        cancelToken: cancelToken,
+        interceptors: [
+          DioCacheInterceptor(options: CacheStoreService.cacheOptions)
+        ]);
+  }
 }

@@ -19,6 +19,7 @@ import '../core/data/repositories/app_repo.dart';
 import '../core/data/repositories/auth_repo.dart';
 import '../core/data/repositories/contacts_repo.dart';
 import '../core/presentation/ui/views/aleardy_sent_invites/already_sent_invites_view.dart';
+import '../core/presentation/ui/views/attendance/attendance_view.dart';
 import '../core/presentation/ui/views/home/models/show_contacts_model.dart';
 import '../core/presentation/ui/views/invites_settings/models/show_data_model.dart';
 import '../core/presentation/ui/views/scheduled_invites/scheduled_invites_view.dart';
@@ -46,6 +47,8 @@ Future<void> setupLocator({
       ShowDataModelForAlreadySentInvites<AlreadySentInvitationsViewModel>());
   locator.registerLazySingleton(
       () => ShowDataModelForScheduledInvites<ScheduledInvitationsViewModel>());
+  locator.registerLazySingleton(
+      () => ShowDataModelForAttendance<AttendanceViewModel>());
   locator.registerFactory(() => NetworkService());
   locator.registerFactory(() => AuthRepo());
   locator.registerFactory(() => ContactsRepo());
