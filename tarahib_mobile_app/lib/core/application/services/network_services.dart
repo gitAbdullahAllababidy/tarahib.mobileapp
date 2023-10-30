@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:talker_dio_logger/talker_dio_logger_interceptor.dart';
@@ -22,8 +23,8 @@ final class NetworkService {
         ),
       ])
       ..options = BaseOptions(
-        baseUrl: App.devSettings.$2,
-      );
+          baseUrl: App.devSettings.$2,
+          connectTimeout: const Duration(seconds: 5));
   }
 
   Future<AppResponseType<ResponseDataObject<T>>> getRequest<T>(
@@ -35,7 +36,6 @@ final class NetworkService {
     CancelToken? cancelToken,
     ProgressCallback? onReceiveProgress,
     bool authorized = false,
-    
   }) async {
     ResponseDataObject<T>? responseDataObject;
     options = Options();
@@ -110,6 +110,9 @@ final class NetworkService {
   ) {
     return switch (e.type) {
       DioExceptionType.badResponse => _responseDataObjectError<T>(e),
+      DioExceptionType.connectionError ||
+      DioExceptionType.connectionTimeout =>
+        left(BotToast.showText(text: local.internetConnectionMsg)),
       _ => left(e)
     };
   }
